@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingTop="35dp" android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titulo"
+        android:layout_margin="25dp"/>
+
+    <EditText
+        android:id="@+id/usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Usuario o correo"
+        android:layout_margin="25dp"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:layout_margin="25dp"/>
+
+    <Button
+        android:id="@+id/btnGenerarPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generar Contraseña"
+        android:textColor="@color/textBtn"
+        android:background="@drawable/boton_redondo_splash"
+        android:padding="10dp"
+        android:layout_margin="25dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textColor="@color/textBtn"
+        android:background="@drawable/boton_redondo_splash"
+        android:padding="10dp"
+        android:layout_margin="25dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
