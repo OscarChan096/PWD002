@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -13,7 +14,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.studio.chan.pwd.Adapters.adapter_item;
+import com.studio.chan.pwd.Datos.Busqueda;
 import com.studio.chan.pwd.Datos.Read;
+import com.studio.chan.pwd.Dialogo.DialogoBusqueda;
+import com.studio.chan.pwd.Objeto.Pswd;
 import com.studio.chan.pwd.Objeto.pswdExtends;
 import com.studio.chan.pwd.R;
 
@@ -23,7 +27,7 @@ import java.util.ArrayList;
  * Created by oscar on 10/02/20.
  */
 
-public class ListPwd extends AppCompatActivity {
+public class ListPwd extends AppCompatActivity implements DialogoBusqueda.OnDialogoBusquedaListener{
 
     private ListView listView;
     private ArrayList<pswdExtends> list;
@@ -94,13 +98,29 @@ public class ListPwd extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent config = new Intent(ListPwd.this, Configuraciones.class);
-            startActivity(config);
-            return true;
+        switch (id){
+            case R.id.action_settings:
+                Intent config = new Intent(ListPwd.this, Configuraciones.class);
+                startActivity(config);
+                return true;
+            case R.id.search:
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                new DialogoBusqueda().show(fragmentManager, "Inicio");
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void Buscar(String nameFile) {
+        pswdExtends pswd = Busqueda.Buscar(nameFile);
+        if (pswd != null){
+            Intent actividadBusqueda = new Intent(ListPwd.this, ResBusqueda.class);
+            actividadBusqueda.putExtra("objeto",pswd);
+            startActivity(actividadBusqueda);
+        }else{
+            Snackbar.make(findViewById(android.R.id.content),"Nombre de cuenta no encontrado",Snackbar.LENGTH_SHORT).show();
+        }
+    }
 }

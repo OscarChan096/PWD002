@@ -55,6 +55,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Actividades.ListPwd" />
         </activity>
+        <!---->
+        <activity
+            android:name=".Actividades.ResBusqueda"
+            android:label="Resultados de la busqueda"
+            android:theme="@style/Theme.AppCompat"
+            android:parentActivityName=".Actividades.ListPwd">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Actividades.ListPwd" />
+        </activity>
     </application>
 
 </manifest>
