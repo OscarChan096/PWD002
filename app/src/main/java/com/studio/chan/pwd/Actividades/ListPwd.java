@@ -105,7 +105,7 @@ public class ListPwd extends AppCompatActivity implements DialogoBusqueda.OnDial
                 return true;
             case R.id.search:
                 FragmentManager fragmentManager = getSupportFragmentManager();
-                new DialogoBusqueda().show(fragmentManager, "Inicio");
+                new DialogoBusqueda().show(fragmentManager, "Buscar");
                 return true;
         }
 
@@ -116,6 +116,7 @@ public class ListPwd extends AppCompatActivity implements DialogoBusqueda.OnDial
     public void Buscar(String nameFile) {
         pswdExtends pswd = Busqueda.Buscar(nameFile);
         if (pswd != null){
+            Snackbar.make(findViewById(android.R.id.content),"Encontrado",Snackbar.LENGTH_SHORT).show();
             Intent actividadBusqueda = new Intent(ListPwd.this, ResBusqueda.class);
             actividadBusqueda.putExtra("objeto",pswd);
             startActivity(actividadBusqueda);

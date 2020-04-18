@@ -1,5 +1,8 @@
 package com.studio.chan.pwd.Datos;
 
+import android.support.design.widget.Snackbar;
+import android.util.Log;
+
 import com.studio.chan.pwd.Objeto.pswdExtends;
 
 import java.io.File;
@@ -28,6 +31,7 @@ public class Busqueda {
                 for (nFile = 0; nFile <= arrayFile.length; nFile++) {
                     try {
                         name = arrayFile[nFile].getName();
+                        Log.d("buscar",name+" "+)
                         if(title.equals(name)){
                             File fileName = new File(path.getAbsolutePath(), name);
                             ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));

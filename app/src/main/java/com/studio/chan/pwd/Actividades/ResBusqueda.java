@@ -34,8 +34,5 @@ public class ResBusqueda extends AppCompatActivity {
         lv = findViewById(R.id.listBusqueda);
         lv.setAdapter(adapter);
 
-        // revisar codigo del listview and el diseño del dialogo
-
-
     }
 }

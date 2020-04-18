@@ -4,7 +4,8 @@
     <string name="password">Contraseña</string>
     <string name="buscar">Buscar</string>
 
-    <string name="version">2.0.1</string>
-    <string name="build">build 13</string>
+    <string name="test">beta</string>
+    <string name="version">2.1</string>
+    <string name="build">build 14</string>
     <string name="by">By Oscar Chan</string>
 </resources>

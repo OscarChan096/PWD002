@@ -45,7 +45,7 @@ public class DialogoBusqueda extends DialogFragment {
      */
     public AlertDialog createLoginDialogo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Identifiquese");
+        builder.setTitle("Buscar");
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
