@@ -60,7 +60,7 @@ public class DialogoBusqueda extends DialogFragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialogLis.Buscar(nameFile.getText().toString());
+                        dialogLis.Buscar(nameFile.getText().toString()+".pwd");
                         dismiss();
                     }
                 }

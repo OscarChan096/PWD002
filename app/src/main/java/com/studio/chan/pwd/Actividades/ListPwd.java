@@ -114,9 +114,9 @@ public class ListPwd extends AppCompatActivity implements DialogoBusqueda.OnDial
 
     @Override
     public void Buscar(String nameFile) {
-        pswdExtends pswd = Busqueda.Buscar(nameFile);
+        pswdExtends pswd = Busqueda.Buscar(getApplicationContext(),nameFile);
         if (pswd != null){
-            Snackbar.make(findViewById(android.R.id.content),"Encontrado",Snackbar.LENGTH_SHORT).show();
+            //Snackbar.make(findViewById(android.R.id.content),"Encontrado",Snackbar.LENGTH_SHORT).show();
             Intent actividadBusqueda = new Intent(ListPwd.this, ResBusqueda.class);
             actividadBusqueda.putExtra("objeto",pswd);
             startActivity(actividadBusqueda);

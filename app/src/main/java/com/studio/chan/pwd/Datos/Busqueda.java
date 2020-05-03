@@ -1,7 +1,9 @@
 package com.studio.chan.pwd.Datos;
 
+import android.content.Context;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.studio.chan.pwd.Objeto.pswdExtends;
 
@@ -19,7 +21,7 @@ import static android.os.Environment.getExternalStorageDirectory;
 
 public class Busqueda {
 
-    public static pswdExtends Buscar(String title){
+    public static pswdExtends Buscar(Context context, String title){
         String name;
         short nFile;
         pswdExtends fileSearch = null;
@@ -31,7 +33,7 @@ public class Busqueda {
                 for (nFile = 0; nFile <= arrayFile.length; nFile++) {
                     try {
                         name = arrayFile[nFile].getName();
-                        Log.d("buscar",name+" "+"");
+                        //Toast.makeText(context,name+" "+title,Toast.LENGTH_SHORT).show();
                         if(title.equals(name)){
                             File fileName = new File(path.getAbsolutePath(), name);
                             ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
