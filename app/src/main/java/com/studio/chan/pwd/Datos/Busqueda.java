@@ -22,6 +22,7 @@ import static android.os.Environment.getExternalStorageDirectory;
 public class Busqueda {
 
     public static pswdExtends Buscar(Context context, String title){
+        //Log.d("Busqueda static","inicia");
         String name;
         short nFile;
         pswdExtends fileSearch = null;
@@ -35,6 +36,7 @@ public class Busqueda {
                         name = arrayFile[nFile].getName();
                         //Toast.makeText(context,name+" "+title,Toast.LENGTH_SHORT).show();
                         if(title.equals(name)){
+                            //Log.d("busqueda static if","encontrado");
                             File fileName = new File(path.getAbsolutePath(), name);
                             ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
                             fileSearch = (pswdExtends) entrada.readObject();

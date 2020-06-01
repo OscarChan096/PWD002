@@ -16,51 +16,57 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!--  -->
+        <activity android:name=".Actividades.MainPWD"></activity>
+
+        <!--  -->
         <activity
             android:name=".Actividades.ListPwd"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
-        <!---->
+            android:theme="@style/Theme.AppCompat"></activity>
+
+        <!--  -->
         <activity
             android:name=".Actividades.Agregar"
             android:label="Agregar"
-            android:theme="@style/Theme.AppCompat"
-            android:parentActivityName=".Actividades.ListPwd">
+            android:parentActivityName=".Actividades.ListPwd"
+            android:theme="@style/Theme.AppCompat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Actividades.ListPwd" />
         </activity>
-        <!---->
+
+        <!--  -->
         <activity
             android:name=".Actividades.Editar"
             android:label="Editar"
-            android:theme="@style/Theme.AppCompat"
-            android:parentActivityName=".Actividades.ListPwd">
+            android:parentActivityName=".Actividades.ListPwd"
+            android:theme="@style/Theme.AppCompat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Actividades.ListPwd" />
         </activity>
-        <!---->
+        <!--  -->
         <activity
             android:name=".Actividades.Configuraciones"
             android:label="Configuraciones"
-            android:theme="@style/Theme.AppCompat"
-            android:parentActivityName=".Actividades.ListPwd">
+            android:parentActivityName=".Actividades.ListPwd"
+            android:theme="@style/Theme.AppCompat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Actividades.ListPwd" />
         </activity>
-        <!---->
+        <!--  -->
         <activity
             android:name=".Actividades.ResBusqueda"
             android:label="Resultados de la busqueda"
-            android:theme="@style/Theme.AppCompat"
-            android:parentActivityName=".Actividades.ListPwd">
+            android:parentActivityName=".Actividades.ListPwd"
+            android:theme="@style/Theme.AppCompat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Actividades.ListPwd" />

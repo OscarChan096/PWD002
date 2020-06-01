@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.studio.chan.pwd.Actividades.ListPwd;
+import com.studio.chan.pwd.Actividades.MainPWD;
 import com.studio.chan.pwd.Datos.Read;
 
 import java.io.File;
@@ -57,12 +58,12 @@ public class ScrollingActivity extends AppCompatActivity {
         File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx");
         if (path.isDirectory()){
             if (Read.isPassword(password)){
-                Intent main = new Intent(this, ListPwd.class);
+                Intent main = new Intent(this, MainPWD.class);
                 startActivity(main);
             }
         }else{
             path.mkdirs(); // crea la carpeta
-            Intent main = new Intent(this, ListPwd.class);
+            Intent main = new Intent(this, MainPWD.class);
             startActivity(main);
         }
     }

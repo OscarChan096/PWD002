@@ -39,7 +39,7 @@ public class Agregar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Write.SavePwd(nombre.getText().toString(), password.getText().toString(), usuario.getText().toString(), view);
-                Intent intent = new Intent(getApplicationContext(), ListPwd.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Intent intent = new Intent(getApplicationContext(), MainPWD.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:padding="15dp">
-
+    android:layout_height="match_parent" android:padding="15dp" android:background="@color/colorPrimary">
 
         <EditText
             android:id="@+id/config_paswd_edit"
@@ -10,6 +9,8 @@
             android:layout_height="wrap_content"
             android:inputType="numberPassword"
             android:maxLength="4"
+            android:textColor="@color/textBtn"
+            android:textColorHint="@color/textBtn"
             android:hint="@string/password"
             android:layout_margin="15dp"/>
 
@@ -23,6 +24,5 @@
             android:layout_margin="15dp"
             android:layout_gravity="center"
             android:background="@drawable/boton_redondo_splash"/>
-
 
 </LinearLayout>
