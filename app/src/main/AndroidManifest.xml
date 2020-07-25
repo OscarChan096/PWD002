@@ -11,9 +11,8 @@
         android:roundIcon="@mipmap/ic_pwd"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ScrollingActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+
+        <activity android:name=".Actividades.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,10 +20,16 @@
             </intent-filter>
         </activity>
 
-        <!--  -->
+        <!--Scrolling -->
+        <activity
+            android:name=".ScrollingActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <!-- MainPWD -->
         <activity android:name=".Actividades.MainPWD"></activity>
 
-        <!--  -->
+        <!-- ListPwd -->
         <activity
             android:name=".Actividades.ListPwd"
             android:label="@string/app_name"

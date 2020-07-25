@@ -8,10 +8,12 @@
     <string name="configuraciones">Configuraciones</string>
     <string name="test">beta</string>
     <string name="version">2.2</string>
-    <string name="build">build 19</string>
+    <string name="build">build 20</string>
     <string name="by">By Oscar Chan</string>
     <string name="title_activity_main_pwd">MainPWD</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="soft">SOFT</string>
+    <string name="chan">CHAN</string>
 </resources>
