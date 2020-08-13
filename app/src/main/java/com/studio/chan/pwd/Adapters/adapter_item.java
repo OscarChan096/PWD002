@@ -19,16 +19,43 @@ import java.util.ArrayList;
 
 public class adapter_item extends BaseAdapter {
 
-    protected Activity activity;
-    protected ArrayList<pswdExtends> items;
-
-    public adapter_item () {
-
-    }
+    private Activity activity;
+    private ArrayList<pswdExtends> items;
+    private ArrayList<pswdExtends> itemsCopia = new ArrayList<>();
 
     public adapter_item (Activity activity, ArrayList<pswdExtends> items) {
         this.activity = activity;
         this.items = items;
+        this.itemsCopia.addAll(items);
+    }
+
+    /* Filtra los datos del adaptador */
+    public void filtrar(String texto) {
+
+        // Elimina todos los datos del ArrayList que se cargan en los
+        // elementos del adaptador
+        items.clear();
+
+        // Si no hay texto: agrega de nuevo los datos del ArrayList copiado
+        // al ArrayList que se carga en los elementos del adaptador
+        if (texto.length() == 0) {
+            items.addAll(itemsCopia);
+        } else {
+
+            // Recorre todos los elementos que contiene el ArrayList copiado
+            // y dependiendo de si estos contienen el texto ingresado por el
+            // usuario los agrega de nuevo al ArrayList que se carga en los
+            // elementos del adaptador.
+            for (pswdExtends item : itemsCopia) {
+
+                if (item.getTitulo().contains(texto)) {
+                    items.add(item);
+                }
+            }
+        }
+
+        // Actualiza el adaptador para aplicar los cambios
+        this.notifyDataSetChanged();
     }
 
     public void UpdateList(ArrayList<pswdExtends> newlist) {

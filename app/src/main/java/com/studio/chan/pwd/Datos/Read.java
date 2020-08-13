@@ -1,6 +1,7 @@
 package com.studio.chan.pwd.Datos;
 
 import com.studio.chan.pwd.Objeto.inf;
+import com.studio.chan.pwd.Objeto.infoApp;
 import com.studio.chan.pwd.Objeto.pswdExtends;
 
 import java.io.File;
@@ -18,20 +19,28 @@ import static android.os.Environment.getExternalStorageDirectory;
 
 public class Read {
 
+    // obtiene los datos guardados en psdExtends para visualizar en el listView
     public static ArrayList getFiles() {
         ArrayList<pswdExtends> arrayList = new ArrayList<>();
+        ArrayList<String> nameListArray = new ArrayList<>();
         String name;
-
         short nFile;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx"); // obtiene el acceso a la memoria interna y obtiene el directorio
-        if (path.isDirectory()) {
+        //File pathlist = new File(getExternalStorageDirectory(),"Android/data/com.studio.chan.pwd/filesx/inf");
+        File fileNameList = new File(Paths.pathInf.getAbsolutePath(),"nameList.nl");
+        //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        if (Paths.pathFilex.isDirectory()) {
             File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if (arrayFile != null) {
                 for (nFile = 0; nFile <= arrayFile.length; nFile++) {
                     try {
                         name = arrayFile[nFile].getName();
-                        File fileName = new File(path.getAbsolutePath(), name);
+                        // --------------------------
+                        if (!fileNameList.exists())
+                            nameListArray.add(name);
+
+
+                        File fileName = new File(Paths.pathFilex.getAbsolutePath(), name);
                         ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
 
                         pswdExtends aux = (pswdExtends) entrada.readObject();
@@ -49,16 +58,19 @@ public class Read {
                     } catch (ClassNotFoundException e) {
                     }
                 } // end for
+                if (!fileNameList.exists())
+                    Write.fileNameList(nameListArray);
             }
         }
         return arrayList;
     }
 
+    // se verifica la contraseña si es correcta para ingresar a la app
     public static boolean isPassword(String password) {
         boolean aprobado = false;
         String name = "pswd.inf";
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
-        File fileName = new File(path.getAbsolutePath(), name);
+        //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
+        File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
         if (fileName.exists()) {
             try {
                 ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
@@ -80,17 +92,19 @@ public class Read {
         return aprobado;
     }
 
+    // verifica la existencia de contraseña
     public static boolean isExistsPswd() {
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
-        File fileName = new File(path.getAbsolutePath(), "pswd.inf");
+        //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
+        File fileName = new File(Paths.pathInf.getAbsolutePath(), "pswd.inf");
         return (fileName.exists()) ? true : false;
     }
+
 
     public static boolean isUpdate() {
         boolean aprobado = false;
         String name = "infoApp.app";
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
-        File fileName = new File(path.getAbsolutePath(), name);
+        //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
+        File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
 
         try {
             ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
@@ -104,8 +118,21 @@ public class Read {
         } catch (ClassNotFoundException e) {
         }
 
-
         return aprobado;
+    }
+
+    // actualizar lista de titulos de contraseñas
+    public static void updateListNameArray(){
+        ArrayList<String> nameListArray = new ArrayList<>();
+
+        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx").listFiles(); // obtiene la lista de archivos que existen en el directorio
+        if (arrayFile != null) {
+            for (short nFile = 0; nFile <= arrayFile.length; nFile++) {
+                String name = arrayFile[nFile].getName();
+                nameListArray.add(name);
+            } // end for
+            Write.fileNameList(nameListArray);
+        }
     }
 
 }

@@ -23,6 +23,6 @@
             android:padding="10dp"
             android:layout_margin="15dp"
             android:layout_gravity="center"
-            android:background="@drawable/boton_redondo_splash"/>
+            android:background="@drawable/boton_redondo"/>
 
 </LinearLayout>

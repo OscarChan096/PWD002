@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.studio.chan.pwd.Datos.GeneratePassword;
+import com.studio.chan.pwd.Datos.Paths;
 import com.studio.chan.pwd.Datos.Write;
 import com.studio.chan.pwd.R;
 import com.studio.chan.pwd.ScrollingActivity;
@@ -82,8 +83,8 @@ public class Editar extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.eliminar) {
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx");
-            File fn = new File(path.getAbsolutePath(), nombreObj);
+            //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx"); linea de codigo funcional - se esta probando una nueva
+            File fn = new File(Paths.pathFilex.getAbsolutePath(), nombreObj);
             fn.delete();
             Intent home_intent = new Intent(getApplicationContext(),
                     ScrollingActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

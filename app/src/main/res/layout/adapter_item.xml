@@ -8,20 +8,20 @@
         android:id="@+id/nombre_adapter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
+        android:textColor="#676767"
         android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/usuario_adapter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fff"/>
+        android:textColor="#676767"/>
 
     <TextView
         android:id="@+id/password_adapter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="italic"
-        android:textColor="#fff"/>
+        android:textColor="#676767"/>
 
 </LinearLayout>

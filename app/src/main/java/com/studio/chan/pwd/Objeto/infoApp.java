@@ -1,4 +1,4 @@
-package com.studio.chan.pwd.Datos;
+package com.studio.chan.pwd.Objeto;
 
 import java.io.Serializable;
 

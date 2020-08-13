@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="@string/test"
         android:layout_gravity="center"
         android:textColor="#fff"/>
 
@@ -47,8 +47,8 @@
         android:text="Entrar"
         android:layout_marginTop="25dp"
         android:layout_gravity="center"
-        android:background="@color/btnSplash"
-        android:textColor="#fff"
+        android:background="@drawable/boton_redondo"
+        android:textColor="@color/textBtn"
         android:textStyle="bold"/>
 
     <LinearLayout

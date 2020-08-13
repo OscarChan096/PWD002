@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class GeneratePassword {
 
     public static String getPassword(){
-        String[] arrayStr = {"096","-","@","#","1996","9609","_","96","16","O","S","C","A","R","0","1","2","3","4","5","6","7","8","9"};
+        String[] arrayStr = {"0","1","2","3","4","5","6","7","8","9","O","S","C","A","R","D","M","I","N","H","F","E","L","I","P","U"};
         int longitud = (int)(Math.random()*15+8);
         ArrayList<String> list = new ArrayList<>();
         String password = "";

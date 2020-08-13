@@ -7,11 +7,6 @@
         android:title="@string/app_name" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="@string/buscar" />
-
-    <item
         android:id="@+id/navigation_notifications"
         android:icon="@android:drawable/ic_menu_preferences"
         android:title="@string/configuraciones" />

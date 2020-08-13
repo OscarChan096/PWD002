@@ -42,10 +42,6 @@ public class MainPWD extends AppCompatActivity implements BottomNavigationView.O
                 fragment = new PWD();
                 break;
 
-            case R.id.navigation_dashboard:
-                fragment = new Busqueda();
-                break;
-
             case R.id.navigation_notifications:
                 fragment = new Configuraciones();
                 break;

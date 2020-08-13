@@ -1,10 +1,11 @@
 package com.studio.chan.pwd.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,19 +14,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.studio.chan.pwd.Actividades.ListPwd;
-import com.studio.chan.pwd.Actividades.ResBusqueda;
 import com.studio.chan.pwd.Adapters.adapter_item;
+import com.studio.chan.pwd.Datos.Read;
 import com.studio.chan.pwd.Objeto.pswdExtends;
 import com.studio.chan.pwd.R;
 
 import java.util.ArrayList;
 
-public class Busqueda extends Fragment {
+public class Busqueda extends Fragment {// implements TextWatcher{
 
     private ListView lv;
     private ArrayList<pswdExtends> list = new ArrayList<>();
     private adapter_item adapter;
+    private EditText nombrecuenta;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle bundle){
@@ -36,10 +39,16 @@ public class Busqueda extends Fragment {
     public void onActivityCreated(@Nullable Bundle bundle){
         super.onActivityCreated(bundle);
 
-        final EditText nombrecuenta = (EditText)getActivity().findViewById(R.id.resbusqueda);
+        nombrecuenta = (EditText)getActivity().findViewById(R.id.resbusqueda);
+        //nombrecuenta.addTextChangedListener(this);
         Button btnBuscar = (Button)getActivity().findViewById(R.id.btnresbusqueda);
 
-        btnBuscar.setOnClickListener(new View.OnClickListener() {
+        //list = Read.getFiles();
+        //adapter = new adapter_item(getActivity(),list);
+        //lv = getActivity().findViewById(R.id.listBusqueda);
+        //lv.setAdapter(adapter);
+
+        /*btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 pswdExtends pswd = com.studio.chan.pwd.Datos.Busqueda.Buscar(getContext(),nombrecuenta.getText().toString()+".pwd");
@@ -58,8 +67,22 @@ public class Busqueda extends Fragment {
                     Snackbar.make(getActivity().findViewById(android.R.id.content),"Nombre de cuenta no encontrado",Snackbar.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
 
     }
 
+    //@Override
+    //public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    // }
+
+    //@Override
+    //public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    //    String filtro = nombrecuenta.getText().toString();
+    //    Log.d("on",filtro);
+    //    adapter.filtrar(filtro);
+    //}
+
+    //@Override
+    //public void afterTextChanged(Editable editable) {
+    // }
 }

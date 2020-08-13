@@ -6,18 +6,21 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.studio.chan.pwd.Adapters.adapter_item;
 import com.studio.chan.pwd.Datos.Busqueda;
 import com.studio.chan.pwd.Datos.Read;
 import com.studio.chan.pwd.Dialogo.DialogoBusqueda;
-import com.studio.chan.pwd.Objeto.Pswd;
 import com.studio.chan.pwd.Objeto.pswdExtends;
 import com.studio.chan.pwd.R;
 
@@ -32,12 +35,13 @@ public class ListPwd extends AppCompatActivity implements DialogoBusqueda.OnDial
     private ListView listView;
     private ArrayList<pswdExtends> list;
     private adapter_item adapter;
+    private EditText busqueda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Password");
+        //setTitle("Password");
 
         list = Read.getFiles();
         adapter = new adapter_item(this,list);

@@ -4,6 +4,7 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 
 import com.studio.chan.pwd.Objeto.inf;
+import com.studio.chan.pwd.Objeto.infoApp;
 import com.studio.chan.pwd.Objeto.pswdExtends;
 
 import java.io.File;
@@ -11,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import static android.os.Environment.getExternalStorageDirectory;
 
@@ -27,8 +29,8 @@ public class Write {
         String nameFile = nameObj + ext;
 
         try {
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx");
-            File fileName = new File(path.getAbsolutePath(), nameFile);
+            //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx");
+            File fileName = new File(Paths.pathFilex.getAbsolutePath(), nameFile);
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream salida = new ObjectOutputStream(fileOut);
 
@@ -50,11 +52,11 @@ public class Write {
         String nameFile = nameObj + ext;
 
         try {
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx");
-            File fileName = new File(path.getAbsolutePath(), nameFile);
-            if (path.isDirectory()) {
+            //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx");
+            File fileName = new File(Paths.pathFilex.getAbsolutePath(), nameFile);
+            if (Paths.pathFilex.isDirectory()) {
 
-                fileName = new File(path.getAbsolutePath(), nameFile);
+                fileName = new File(Paths.pathFilex.getAbsolutePath(), nameFile);
                 FileOutputStream fileOut = new FileOutputStream(fileName);
                 ObjectOutputStream salida = new ObjectOutputStream(fileOut);
 
@@ -77,12 +79,12 @@ public class Write {
     public static void SaveInf(String passwordnew, View view) {
         String name = "pswd.inf";
         try {
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
-            File fileName = new File(path.getAbsolutePath(), name);
+            //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
+            File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
             if (!fileName.exists()) {
 
-                if (!path.isDirectory())
-                    path.mkdirs();
+                if (!Paths.pathInf.isDirectory())
+                    Paths.pathInf.mkdirs();
 
                 FileOutputStream fileOut = new FileOutputStream(fileName);
                 ObjectOutputStream salida = new ObjectOutputStream(fileOut);
@@ -105,11 +107,11 @@ public class Write {
     public static void SaveInfApp(boolean update) {
         String name = "infoApp.app";
         try {
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
-            File fileName = new File(path.getAbsolutePath(), name);
+            //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
+            File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
 
-            if (!path.isDirectory())
-                path.mkdirs();
+            if (!Paths.pathInf.isDirectory())
+                Paths.pathInf.mkdirs();
 
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream salida = new ObjectOutputStream(fileOut);
@@ -121,8 +123,23 @@ public class Write {
 
 
         } catch (FileNotFoundException fnfe) {
-        } catch (IOException ioe) {
-        }
+        } catch (IOException ioe) { }
+    }
+
+    public static void fileNameList(ArrayList<String> listname){
+        String name = "nameList.nl";
+        try {
+            //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
+            File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
+
+            FileOutputStream fileOut = new FileOutputStream(fileName);
+            ObjectOutputStream salida = new ObjectOutputStream(fileOut);
+
+            salida.writeObject(listname);
+
+
+        } catch (FileNotFoundException fnfe) {
+        } catch (IOException ioe) { }
     }
 
 }

@@ -27,8 +27,8 @@ public class Busqueda {
         short nFile;
         pswdExtends fileSearch = null;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx"); // obtiene el acceso a la memoria interna y obtiene el directorio
-        if (path.isDirectory()) {
+        //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx"); // funcional - se esta probando una nueva //obtiene el acceso a la memoria interna y obtiene el directorio
+        if (Paths.pathFilex.isDirectory()) {
             File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if (arrayFile != null) {
                 for (nFile = 0; nFile <= arrayFile.length; nFile++) {
@@ -37,7 +37,7 @@ public class Busqueda {
                         //Toast.makeText(context,name+" "+title,Toast.LENGTH_SHORT).show();
                         if(title.equals(name)){
                             //Log.d("busqueda static if","encontrado");
-                            File fileName = new File(path.getAbsolutePath(), name);
+                            File fileName = new File(Paths.pathFilex.getAbsolutePath(), name);
                             ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
                             fileSearch = (pswdExtends) entrada.readObject();
                         }

@@ -7,10 +7,14 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.studio.chan.pwd.Actividades.Agregar;
@@ -24,11 +28,12 @@ import com.studio.chan.pwd.R;
 
 import java.util.ArrayList;
 
-public class PWD extends Fragment {
+public class PWD extends Fragment implements TextWatcher {
 
     private ListView listView;
     private ArrayList<pswdExtends> list;
     private adapter_item adapter;
+    private EditText busqueda;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle saved){
@@ -40,6 +45,9 @@ public class PWD extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        busqueda = getActivity().findViewById(R.id.edt_busqueda);
+        busqueda.addTextChangedListener(this);
 
         list = Read.getFiles();
         adapter = new adapter_item(getActivity(),list);
@@ -80,4 +88,20 @@ public class PWD extends Fragment {
 
     }
 
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        String filtro = busqueda.getText().toString();
+        //Log.d("on",filtro);
+        adapter.filtrar(filtro);
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
 }
