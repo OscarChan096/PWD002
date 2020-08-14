@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.studio.chan.pwd.Actividades.ListPwd;
@@ -25,6 +26,8 @@ import com.studio.chan.pwd.Actividades.MainPWD;
 import com.studio.chan.pwd.Datos.Read;
 
 import java.io.File;
+import java.util.Calendar;
+
 import static android.os.Environment.getExternalStorageDirectory;
 
 public class ScrollingActivity extends AppCompatActivity {
@@ -41,6 +44,10 @@ public class ScrollingActivity extends AppCompatActivity {
         permissionStorageExternal();
 
         //Log.d("Error","SplashScreen");
+
+        TextView mensajeBienvenida = findViewById(R.id.tvbienvenida);
+        mensajeBienvenida.setText("Hola "+dtn());
+
 
         final EditText password = findViewById(R.id.inicio_password);
         Button iniciar = findViewById(R.id.iniciar);
@@ -110,6 +117,22 @@ public class ScrollingActivity extends AppCompatActivity {
                         "acción", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public String dtn(){
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR);
+        String dtn = "";
+
+        if (hour >= 6 && hour <12){
+            dtn = "buen dia";
+        }else if (hour >= 12 && hour < 18){
+            dtn = "buena tarde";
+        }else if(hour >= 18){
+            dtn = "buena noche";
+        }
+
+        return dtn;
     }
 
 }
