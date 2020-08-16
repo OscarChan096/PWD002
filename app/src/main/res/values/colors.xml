@@ -5,7 +5,8 @@
     <color name="colorAccent">#000</color>
     <color name="btn">#cea168</color>
     <color name="btnSplash">#0b39a1</color>
-    <color name="btnFab">#000000</color>
+    <color name="btnFab">#0D0D0D</color>
     <color name="textBtn">#676767</color>
     <color name="bgplash">#cea168</color>
+    <color name="error">#DC0000</color>
 </resources>

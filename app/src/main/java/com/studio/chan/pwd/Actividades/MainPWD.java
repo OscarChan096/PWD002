@@ -14,6 +14,7 @@ import com.studio.chan.pwd.Fragments.Busqueda;
 import com.studio.chan.pwd.Fragments.Configuraciones;
 import com.studio.chan.pwd.Fragments.PWD;
 import com.studio.chan.pwd.R;
+import com.studio.chan.pwd.ScrollingActivity;
 
 public class MainPWD extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 

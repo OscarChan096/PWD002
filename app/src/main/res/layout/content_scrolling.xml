@@ -39,7 +39,8 @@
         android:inputType="numberPassword"
         android:maxLength="4"
         android:gravity="center"
-        android:textColorHint="#fff"/>
+        android:textColorHint="#fff">
+    </EditText>
 
     <Button
         android:id="@+id/iniciar"
