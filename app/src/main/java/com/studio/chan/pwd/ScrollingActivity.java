@@ -60,20 +60,11 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher{
             public void run(){
                 mensajeBienvenida.setText(dtn());
             };
-        }, 2500);
+        }, 3000);
 
 
         password = findViewById(R.id.inicio_password);
         password.addTextChangedListener(this);
-
-        Button iniciar = findViewById(R.id.iniciar);
-        iniciar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                VerificarDatos(password.getText().toString());
-                finish();
-            }
-        });
 
     }
 
