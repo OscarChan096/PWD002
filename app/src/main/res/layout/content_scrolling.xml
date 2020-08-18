@@ -50,14 +50,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/inicio_password"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="110dp">
 
         <TextView
             android:id="@+id/by"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/by"
-            android:textColor="#fff"
+            android:textColor="#D9FFFFFF"
             android:layout_centerHorizontal="true"/>
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_below="@id/by"
             android:layout_centerHorizontal="true"
             android:text="@string/version"
-            android:textColor="#fff" />
+            android:textColor="#D9FFFFFF" />
 
     </RelativeLayout>
 

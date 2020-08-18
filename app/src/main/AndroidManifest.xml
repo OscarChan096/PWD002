@@ -40,18 +40,13 @@
         <activity
             android:name=".Actividades.Agregar"
             android:label="Agregar"
-            android:parentActivityName=".Actividades.MainPWD"
             android:theme="@style/Theme.AppCompat">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Actividades.MainPWD" />
         </activity>
 
         <!-- editar -->
         <activity
             android:name=".Actividades.Editar"
             android:label="Editar"
-            android:parentActivityName=".Actividades.MainPWD"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -59,7 +54,6 @@
         <activity
             android:name=".Actividades.Configuraciones"
             android:label="Configuraciones"
-            android:parentActivityName=".Actividades.MainPWD"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
