@@ -1,5 +1,8 @@
 package com.studio.chan.pwd.Datos;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.studio.chan.pwd.Objeto.inf;
 import com.studio.chan.pwd.Objeto.infoApp;
 import com.studio.chan.pwd.Objeto.pswdExtends;
@@ -25,10 +28,7 @@ public class Read {
         ArrayList<String> nameListArray = new ArrayList<>();
         String name;
         short nFile;
-
-        //File pathlist = new File(getExternalStorageDirectory(),"Android/data/com.studio.chan.pwd/filesx/inf");
         File fileNameList = new File(Paths.pathInf.getAbsolutePath(),"nameList.nl");
-        //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if (Paths.pathFilex.isDirectory()) {
             File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if (arrayFile != null) {
@@ -38,7 +38,6 @@ public class Read {
                         // --------------------------
                         if (!fileNameList.exists())
                             nameListArray.add(name);
-
 
                         File fileName = new File(Paths.pathFilex.getAbsolutePath(), name);
                         ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
@@ -69,7 +68,6 @@ public class Read {
     public static boolean isPassword(String password) {
         boolean aprobado = false;
         String name = "pswd.inf";
-        //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
         File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
         if (fileName.exists()) {
             try {
@@ -92,6 +90,27 @@ public class Read {
         return aprobado;
     }
 
+    public static String getPassword(Context context){
+        String paswd = "";
+        String name = "pswd.inf";
+        File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
+        if (fileName.exists()) {
+            try {
+                ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
+
+                inf aux = (inf) entrada.readObject();
+                paswd = aux.getPasswordInf();
+            } catch (FileNotFoundException ex) {
+            } catch (IOException e) {
+            } catch (ArrayIndexOutOfBoundsException e) {
+            } catch (ClassNotFoundException e) {
+            }
+        } else {
+            Toast.makeText(context,"No existe pin para sincronizar", Toast.LENGTH_SHORT).show();
+        }
+        return paswd;
+    }
+
     // verifica la existencia de contraseña
     public static boolean isExistsPswd() {
         //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
@@ -103,7 +122,6 @@ public class Read {
     public static boolean isUpdate() {
         boolean aprobado = false;
         String name = "infoApp.app";
-        //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
         File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
 
         try {

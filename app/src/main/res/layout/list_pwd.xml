@@ -9,15 +9,14 @@
         android:id="@+id/edt_busqueda"
         android:drawableStart="@drawable/search"
         android:drawableLeft="@drawable/search"
-        android:drawablePadding="20dp"
+        android:drawablePadding="110dp"
         android:hint="@string/buscar"
         android:textColorHint="#fff"
         android:textColor="#fff"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:padding="15dp"
         android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <requestFocus/>
     </EditText>
