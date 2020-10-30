@@ -79,6 +79,11 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher{
             }else{
                 mensajeBienvenida.setText("Contraseña incorrecta");
                 mensajeBienvenida.setTextColor(getResources().getColor(R.color.error));
+                new Handler().postDelayed(new Runnable(){
+                    public void run(){
+                        mensajeBienvenida.setText(dtn());
+                    };
+                }, 1000);
             }
         }else{
             path.mkdirs(); // crea la carpeta
