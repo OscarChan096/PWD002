@@ -33,6 +33,7 @@
         android:id="@+id/inicio_password"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:hint="@string/password"
         android:gravity="center"
         android:textColor="#fff"

@@ -146,11 +146,11 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher{
         //Log.d("dtn","Hora: "+hour+" am_pm "+am_pm);
 
         if((hour == 0 && am_pm == 0) || (hour >= 1 && am_pm == 0))
-            dtn = "BUEN DIA";
+            dtn = "BUENOS DIAS";
         else if ((hour == 12 && am_pm == 1) || ((hour >= 1 && hour <= 6) && am_pm == 1))
-            dtn = "BUENA TARDE";
+            dtn = "BUENAS TARDES";
         else if(hour >= 7 && am_pm == 1)
-            dtn = "BUENA NOCHE";
+            dtn = "BUENAS NOCHES";
 
         return dtn;
     }
