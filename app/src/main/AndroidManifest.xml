@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.studio.chan.pwd">
+    package="com.softchan.pwd">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Actividades.SplashScreen">
+        <activity android:name="com.softchan.pwd.Actividades.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,47 +23,37 @@
 
         <!--Scrolling -->
         <activity
-            android:name=".ScrollingActivity"
+            android:name="com.softchan.pwd.ScrollingActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <!-- MainPWD -->
-        <activity android:name=".Actividades.MainPWD"
+        <activity android:name="com.softchan.pwd.Actividades.MainPWD"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <!-- ListPwd -->
         <activity
-            android:name=".Actividades.ListPwd"
+            android:name="com.softchan.pwd.Actividades.ListPwd"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat"></activity>
 
         <!-- AGREGAR -->
         <activity
-            android:name=".Actividades.Agregar"
+            android:name="com.softchan.pwd.Actividades.Agregar"
             android:label="Agregar"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
         <!-- editar -->
         <activity
-            android:name=".Actividades.Editar"
+            android:name="com.softchan.pwd.Actividades.Editar"
             android:label="Editar"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
         <!-- Configuraciones -->
-        <activity
-            android:name=".Actividades.Configuraciones"
-            android:label="Configuraciones"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
 
         <!-- ResBusqueda -->
-        <activity
-            android:name=".Actividades.ResBusqueda"
-            android:label="Resultados de la busqueda"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
     </application>
 
 </manifest>

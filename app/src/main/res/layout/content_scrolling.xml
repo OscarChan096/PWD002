@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.studio.chan.pwd.ScrollingActivity"
+    tools:context="com.softchan.pwd.ScrollingActivity"
     tools:showIn="@layout/activity_scrolling"
-    android:background="#000"
-    android:orientation="vertical">
+    android:background="#000">
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/by"
             android:layout_centerHorizontal="true"
-            android:text="@string/version"
+            android:text="@string/version_fase"
             android:textColor="#D9FFFFFF" />
 
     </RelativeLayout>

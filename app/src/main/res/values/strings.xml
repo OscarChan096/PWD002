@@ -6,9 +6,10 @@
 
     <string name="PWD">PWD</string>
     <string name="configuraciones">Configuraciones</string>
-    <string name="test">beta</string>
-    <string name="version">3.2.3 build 30</string>
-    <string name="build">build 30</string>
+    <string name="version_fase">4 build 37 beta2</string>
+    <string name="fase">beta2</string>
+    <string name="version">4 build 37</string>
+    <string name="build">build 37</string>
     <string name="by">By Oscar Chan</string>
     <string name="title_activity_main_pwd">MainPWD</string>
     <string name="title_home">Home</string>
@@ -16,4 +17,5 @@
     <string name="title_notifications">Notifications</string>
     <string name="soft">SOFT</string>
     <string name="chan">CHAN</string>
+    <string name="todo">TODO</string>
 </resources>
