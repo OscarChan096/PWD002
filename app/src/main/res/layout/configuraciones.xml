@@ -34,48 +34,4 @@
             android:layout_gravity="center"
             android:background="@drawable/boton_redondo"/>
 
-        <TextView
-            android:layout_marginTop="35dp"
-            android:layout_marginBottom="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/textBtn"
-            android:textStyle="bold|italic"
-            android:text=" # Sincronizacion de datos"/>
-
-        <Button
-            android:layout_marginBottom="35dp"
-            android:id="@+id/btn_sync_pin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sincronizar pin"
-            android:textColor="@color/textBtn"
-            android:padding="10dp"
-            android:layout_margin="15dp"
-            android:layout_gravity="center"
-            android:background="@drawable/boton_redondo"/>
-
-        <Button
-            android:layout_marginBottom="35dp"
-            android:id="@+id/btn_upload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Subir"
-            android:textColor="@color/textBtn"
-            android:padding="10dp"
-            android:layout_margin="15dp"
-            android:layout_gravity="center"
-            android:background="@drawable/boton_redondo"/>
-
-        <Button
-            android:id="@+id/btn_download"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descargar"
-            android:textColor="@color/textBtn"
-            android:padding="10dp"
-            android:layout_margin="15dp"
-            android:layout_gravity="center"
-            android:background="@drawable/boton_redondo"/>
-
 </LinearLayout>

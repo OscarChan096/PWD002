@@ -3,6 +3,7 @@ package com.softchan.pwd.Datos;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.softchan.pwd.Objeto.UserInf;
 import com.softchan.pwd.Objeto.inf;
 import com.softchan.pwd.Objeto.infoApp;
 
@@ -11,6 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 /**
  * Created by oscar on 10/02/20.
@@ -60,8 +62,39 @@ public class Read {
         return arrayList;
     }f*/
 
+    public static boolean isUserInf(){
+        File file = new File(Paths.pathInf.getAbsolutePath(), Paths.nameUserInfFile);
+        if (file.exists())
+            return true;
+        else
+            return false;
+    }
+
+    // lee los datos del usuario
+    public static ArrayList<String> getUserInf() {
+        ArrayList<String> userInfList = new ArrayList<>();
+        File fileName = new File(Paths.pathInf.getAbsolutePath(), Paths.nameUserInfFile);
+        try {
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
+
+            UserInf aux = (UserInf) entrada.readObject();
+            String user = aux.getUser();
+            String password = String.valueOf(aux.getPasswordApp());
+
+            userInfList.add(user.toUpperCase());
+            userInfList.add(password);
+
+        } catch (FileNotFoundException ex) {
+        } catch (IOException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ClassNotFoundException e) {
+        }
+
+        return userInfList;
+    }
+
     // se verifica la contraseña si es correcta para ingresar a la app
-    public static boolean isPassword(String password) {
+    /*public static boolean isPassword(String password) {
         boolean aprobado = false;
         String name = "pswd.inf";
         File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
@@ -105,7 +138,7 @@ public class Read {
             Toast.makeText(context,"No existe pin para sincronizar", Toast.LENGTH_SHORT).show();
         }
         return paswd;
-    }
+    }*/
 
     // verifica la existencia de contraseña
     public static boolean isExistsPswd() {
@@ -115,7 +148,7 @@ public class Read {
     }
 
 
-    public static boolean isUpdate() {
+    /*public static boolean isUpdate() {
         boolean aprobado = false;
         String name = "infoApp.app";
         File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
@@ -133,6 +166,6 @@ public class Read {
         }
 
         return aprobado;
-    }
+    }*/
 
 }

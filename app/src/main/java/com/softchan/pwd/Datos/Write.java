@@ -1,8 +1,11 @@
 package com.softchan.pwd.Datos;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import android.util.Log;
 import android.view.View;
 
+import com.softchan.pwd.Objeto.UserInf;
 import com.softchan.pwd.Objeto.inf;
 import com.softchan.pwd.Objeto.infoApp;
 
@@ -73,6 +76,42 @@ public class Write {
 
     }*/
 
+    // guardar/crear archivo de informacion de usuario
+    public static boolean saveUserInf(String user, String password, int id) {
+        boolean flag = false;
+        try {
+            File fileName = new File(Paths.pathInf.getAbsolutePath(), Paths.nameUserInfFile);
+            if(id == 0){
+                if (!Paths.pathInf.isDirectory()){
+                    Paths.pathInf.mkdirs();
+                    //Log.d("Write","mkdirs");
+                }else{
+                    if (!fileName.exists()) {
+                        //Log.d("write","filenameexistls");
+                        FileOutputStream fileOut = new FileOutputStream(fileName);
+                        ObjectOutputStream salida = new ObjectOutputStream(fileOut);
+                        UserInf pwd = new UserInf(user,password);
+                        salida.writeObject(pwd);
+                        flag = true;
+                        //Log.d("Write",flag+" guardado");
+                    }
+                }
+            }else {
+                FileOutputStream fileOut = new FileOutputStream(fileName);
+                ObjectOutputStream salida = new ObjectOutputStream(fileOut);
+                UserInf pwd = new UserInf();
+                pwd.setPasswordApp(password);
+                salida.writeObject(pwd);
+                flag = true;
+            }
+        } catch (FileNotFoundException fnfe) {
+        } catch (IOException ioe) {
+            //Log.d("IOE",ioe.getMessage());
+        }
+
+        return flag;
+    }
+
     public static void SaveInf(String passwordnew, View view) {
         String name = "pswd.inf";
         try {
@@ -116,22 +155,6 @@ public class Write {
             pwd.setUpdate(update);
 
             salida.writeObject(pwd);
-
-
-        } catch (FileNotFoundException fnfe) {
-        } catch (IOException ioe) { }
-    }
-
-    public static void fileNameList(ArrayList<String> listname){
-        String name = "nameList.nl";
-        try {
-            //File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx/inf");
-            File fileName = new File(Paths.pathInf.getAbsolutePath(), name);
-
-            FileOutputStream fileOut = new FileOutputStream(fileName);
-            ObjectOutputStream salida = new ObjectOutputStream(fileOut);
-
-            salida.writeObject(listname);
 
 
         } catch (FileNotFoundException fnfe) {

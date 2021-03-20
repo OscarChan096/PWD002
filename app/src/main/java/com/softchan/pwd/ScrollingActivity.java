@@ -14,51 +14,90 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.softchan.pwd.Actividades.MainPWD;
+import com.softchan.pwd.Actividades.WelcomeToApp;
+import com.softchan.pwd.Datos.Paths;
 import com.softchan.pwd.Datos.Read;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import static android.os.Environment.getExternalStorageDirectory;
 
 public class ScrollingActivity extends AppCompatActivity implements TextWatcher{
 
-    private static final int SOLICITUD_PERMISO_WRITE_CALL_LOG = 0; // codigo para el permiso de escritura
+    //private static final int SOLICITUD_PERMISO_WRITE_CALL_LOG = 0; // codigo para el permiso de escritura
     private EditText password;
     private TextView mensajeBienvenida;
+    private ArrayList<String> userInfList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        permissionStorageExternal();
+        //permissionStorageExternal();
+        firstSettings();
 
-        //Log.d("Error","SplashScreen");
+        userInfList = Read.getUserInf();
+        Log.d("list",userInfList.size()+"");
+
+        if (userInfList.contains("none")){
+            Intent main = new Intent(this, MainPWD.class);
+            startActivity(main);
+            finish();
+        }
 
         mensajeBienvenida = findViewById(R.id.tvbienvenida);
-        mensajeBienvenida.setText("HOLA, OSCAR");
+        mensajeBienvenida.setText("HOLA, "+userInfList.get(0));
         new Handler().postDelayed(new Runnable(){
             public void run(){
                 mensajeBienvenida.setText(dtn());
             };
         }, 1500);
 
-
         password = findViewById(R.id.inicio_password);
         password.addTextChangedListener(this);
 
     }
 
+    private void firstSettings() {
+        if (!Read.isUserInf()) {
+            Intent welcome = new Intent(getApplicationContext(), WelcomeToApp.class);
+            startActivity(welcome);
+        }
+    }
+
     public void VerificarDatos(String password){
+        if (userInfList.contains(password)){
+            Intent main = new Intent(this, MainPWD.class);
+            startActivity(main);
+            finish();
+        }else{
+            mensajeBienvenida.setText("Contraseña incorrecta");
+            mensajeBienvenida.setTextColor(getResources().getColor(R.color.error));
+            new Handler().postDelayed(new Runnable(){
+                public void run(){
+                    mensajeBienvenida.setTextColor(getResources().getColor(R.color.textBtn));
+                    mensajeBienvenida.setText(dtn());
+                };
+            }, 1000);
+        }
+    }
+
+    /*public void VerificarDatos(String password){
         File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx");
         if (path.isDirectory()){
             if (Read.isPassword(password)){
@@ -70,6 +109,7 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher{
                 mensajeBienvenida.setTextColor(getResources().getColor(R.color.error));
                 new Handler().postDelayed(new Runnable(){
                     public void run(){
+                        mensajeBienvenida.setTextColor(getResources().getColor(R.color.textBtn));
                         mensajeBienvenida.setText(dtn());
                     };
                 }, 1000);
@@ -78,11 +118,12 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher{
             path.mkdirs(); // crea la carpeta
             Intent main = new Intent(this, MainPWD.class);
             startActivity(main);
+            finish();
         }
-    }
+    }*/
 
     //--------------- codigo para el dialogo de permiso de escritura
-    void permissionStorageExternal(){
+    /*void permissionStorageExternal(){
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -123,7 +164,7 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher{
                         "acción", Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    }*/
 
     public String dtn(){
         Calendar calendar = Calendar.getInstance();

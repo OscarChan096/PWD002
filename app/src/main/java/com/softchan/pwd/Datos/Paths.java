@@ -9,4 +9,6 @@ public class Paths {
    public static File pathFilex = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.pwd/filesx");
    public static File pathInf = new File(getExternalStorageDirectory(),"Android/data/com.studio.chan.pwd/filesx/inf");
 
+   public static String nameUserInfFile = "user.inf";
+
 }

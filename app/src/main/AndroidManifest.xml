@@ -31,29 +31,28 @@
         <activity android:name="com.softchan.pwd.Actividades.MainPWD"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <!-- ListPwd -->
-        <activity
-            android:name="com.softchan.pwd.Actividades.ListPwd"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat"></activity>
-
         <!-- AGREGAR -->
         <activity
             android:name="com.softchan.pwd.Actividades.Agregar"
             android:label="Agregar"
-            android:theme="@style/Theme.AppCompat">
+            android:parentActivityName=".Actividades.MainPWD"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <!-- editar -->
         <activity
             android:name="com.softchan.pwd.Actividades.Editar"
             android:label="Editar"
-            android:theme="@style/Theme.AppCompat">
+            android:parentActivityName=".Actividades.MainPWD"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <!-- Configuraciones -->
+        <!-- welcome -->
+        <activity
+            android:name=".Actividades.WelcomeToApp"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
-        <!-- ResBusqueda -->
     </application>
 
 </manifest>

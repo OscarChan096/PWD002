@@ -75,14 +75,14 @@ public class PWD extends Fragment implements TextWatcher {
             }
         });
 
-        if (!Read.isExistsPswd()) {
+        /*if (!Read.isExistsPswd()) {
             Snackbar.make(getActivity().findViewById(android.R.id.content), "Por seguridad debe agregarle una contraseña a la app", Snackbar.LENGTH_LONG).setAction("Agregar", new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(getActivity(),Configuraciones.class));
                 }
             }).show();
-        }
+        }*/
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override

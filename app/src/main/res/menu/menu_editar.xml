@@ -2,8 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.softchan.pwd.MainActivity">
+
+    <item
+        android:id="@+id/action_save"
+        android:icon="@drawable/save"
+        android:orderInCategory="100"
+        android:title="Guardar"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/eliminar"
+        android:icon="@drawable/ic_delete"
         android:orderInCategory="100"
         android:title="Eliminar"
         app:showAsAction="always" />

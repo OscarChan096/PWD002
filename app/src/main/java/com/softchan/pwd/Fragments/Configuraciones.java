@@ -27,14 +27,15 @@ public class Configuraciones extends Fragment {
 
         final EditText passwordnew = getActivity().findViewById(R.id.config_paswd_edit);
         Button btn = getActivity().findViewById(R.id.btn_save_paswd_edit);
-        Button btnUpload = getActivity().findViewById(R.id.btn_upload);
-        Button btnSyncPin = getActivity().findViewById(R.id.btn_sync_pin);
-        Button btnDownload = getActivity().findViewById(R.id.btn_download);
+        //Button btnUpload = getActivity().findViewById(R.id.btn_upload);
+        //Button btnSyncPin = getActivity().findViewById(R.id.btn_sync_pin);
+        //Button btnDownload = getActivity().findViewById(R.id.btn_download);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Write.SaveInf(passwordnew.getText().toString(),view);
+                String sPasswordUsuario = passwordnew.getText().toString();
+                Write.saveUserInf("",sPasswordUsuario,1);
             }
         });
 

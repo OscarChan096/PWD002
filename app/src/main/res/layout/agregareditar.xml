@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingTop="35dp" android:paddingLeft="20dp"
-    android:paddingRight="20dp" android:background="@color/colorPrimary">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="35dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:background="@color/colorPrimary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <EditText
         android:id="@+id/nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Titulo"
+        android:textColor="@color/textBtn"
+        android:textColorHint="@color/textBtn"
         android:layout_margin="25dp"/>
 
     <EditText
@@ -16,13 +24,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario o correo"
-        android:layout_margin="25dp"/>
+        android:textColor="@color/textBtn"
+        android:layout_margin="25dp"
+        android:textColorHint="@color/textBtn"/>
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password"
+        android:textColor="@color/textBtn"
+        android:textColorHint="@color/textBtn"
         android:layout_margin="25dp"/>
 
     <Button
@@ -33,18 +45,75 @@
         android:textColor="@color/textBtn"
         android:background="@drawable/boton_redondo"
         android:padding="10dp"
-        android:layout_margin="25dp"
+        android:layout_margin="30dp"
         android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/btnGuardar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:textColor="@color/textBtn"
-        android:background="@drawable/boton_redondo"
-        android:padding="10dp"
-        android:layout_margin="25dp"
-        android:layout_gravity="center"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Seleccione una opcion para la contraseña / dejar en blanco para no asignar contraseña"
+           android:textColor="@color/textBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/chk_mayus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/textBtn"
+                android:textColor="@color/textBtn"
+                android:text="Mayusculas" />
+
+            <CheckBox
+                android:id="@+id/chk_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/textBtn"
+                android:textColor="@color/textBtn"
+                android:text="Minusculas" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:buttonTint="@color/textBtn"
+                android:id="@+id/chk_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/textBtn"
+                android:text="Numeros" />
+
+            <CheckBox
+                android:id="@+id/chk_sim"
+                android:buttonTint="@color/textBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/textBtn"
+                android:text="Simbolos" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

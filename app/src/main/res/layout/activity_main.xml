@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Actividades.ListPwd"
+    tools:context=".Actividades.MainPWD"
     android:background="@color/colorPrimary"
     android:paddingTop="10dp">
 
@@ -12,9 +12,10 @@
         android:id="@+id/btn_add"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/ic_add_circle"
+        app:layout_constraintVertical_bias="@android:integer/status_bar_notification_info_maxnum"
+        app:layout_constraintEnd_toEndOf="@id/listview"
         app:layout_constraintBottom_toTopOf="@id/listview"
         app:layout_constraintLeft_toRightOf="@id/edt_busqueda" />
 
@@ -22,17 +23,12 @@
         android:id="@+id/edt_busqueda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTintMode="screen"
         android:backgroundTint="@color/colorPrimaryDark"
         android:drawableStart="@drawable/search"
         android:drawableLeft="@drawable/search"
-        android:drawablePadding="50dp"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:hint="@string/buscar"
-        android:paddingTop="15dp"
-        android:paddingRight="100dp"
-        android:paddingBottom="15dp"
+        android:padding="15dp"
         android:textColor="#fff"
         android:textColorHint="#fff"
         app:layout_constraintBaseline_toBaselineOf="@+id/btn_add"
@@ -48,8 +44,8 @@
         android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="35dp"
-        android:layout_marginBottom="35dp"
         android:paddingTop="10dp"
+        android:paddingBottom="25dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="10.0sp"></ListView>
 

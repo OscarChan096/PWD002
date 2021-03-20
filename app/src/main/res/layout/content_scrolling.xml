@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/by"
             android:layout_centerHorizontal="true"
-            android:text="@string/version_fase"
+            android:text="@string/version"
             android:textColor="#D9FFFFFF" />
 
     </RelativeLayout>
