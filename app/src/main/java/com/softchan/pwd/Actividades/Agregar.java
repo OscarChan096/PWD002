@@ -83,7 +83,7 @@ public class Agregar extends AppCompatActivity {
                 if (!p.equals("Seleccione una/varias opciones para contraseña")){
                     String n = nombre.getText().toString();
                     String u = usuario.getText().toString();
-                    pswd = new Pswd(n.toUpperCase(), p, u);
+                    pswd = new Pswd(n.toUpperCase(), u, p);
                     dbAcces.add(pswd);
                     nombre.setText("");
                     password.setText("");

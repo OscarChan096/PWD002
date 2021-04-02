@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
+    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Actividades.MainPWD">
@@ -18,12 +19,16 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
-        app:labelVisibilityMode="unlabeled"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        app:labelVisibilityMode="selected"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/boton_redondo_splash"
+        app:itemBackground="@android:color/transparent"
         app:itemIconTint="@color/textBtn"
         app:itemTextColor="@color/textBtn"
         app:layout_constraintBottom_toBottomOf="parent"

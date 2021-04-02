@@ -31,7 +31,6 @@ public class PWD extends Fragment implements TextWatcher {
 
     private ListView listView;
     private List<Pswd> pswdList = new ArrayList<>();
-    //private ArrayList<pswdExtends> list;
     private adapter_item adapter;
     private EditText busqueda;
     private DBAcces dbAcces;

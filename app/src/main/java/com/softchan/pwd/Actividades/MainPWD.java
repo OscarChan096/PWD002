@@ -6,12 +6,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.softchan.pwd.Fragments.Configuraciones;
 import com.softchan.pwd.Fragments.PWD;
 import com.softchan.pwd.R;
+
+import jp.wasabeef.blurry.Blurry;
 
 public class MainPWD extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 

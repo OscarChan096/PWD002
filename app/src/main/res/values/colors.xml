@@ -2,11 +2,12 @@
 <resources>
     <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">@android:color/transparent</color>
-    <color name="colorAccent">#000</color>
+    <color name="colorAccent">#FFFFFF</color>
     <color name="btn">#cea168</color>
     <color name="btnSplash">#0b39a1</color>
     <color name="btnFab">#0D0D0D</color>
     <color name="textBtn">#D7FFFFFF</color>
     <color name="bgplash">#cea168</color>
     <color name="error">#DC0000</color>
+    <color name="bnv">#3C3C3C</color>
 </resources>
