@@ -9,11 +9,4 @@
         android:orderInCategory="100"
         android:title="Guardar"
         app:showAsAction="always" />
-
-    <item
-        android:id="@+id/eliminar"
-        android:icon="@drawable/ic_delete"
-        android:orderInCategory="100"
-        android:title="Eliminar"
-        app:showAsAction="always" />
 </menu>

@@ -1,6 +1,7 @@
 package com.softchan.pwd.dbroom;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.room.Room;
 
@@ -53,6 +54,10 @@ public class DBAcces {
 
     public void update(int id, String titulo, String usuario, String password){
         pswdDAO.update(id,titulo,usuario,password);
+    }
+
+    public void update(Pswd pswd){
+        pswdDAO.updatex(pswd);
     }
 
 }

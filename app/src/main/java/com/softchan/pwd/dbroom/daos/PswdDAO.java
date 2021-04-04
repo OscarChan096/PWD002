@@ -31,7 +31,7 @@ public interface PswdDAO {
     @Query("DELETE FROM pswd WHERE id=:id")
     void deleteById(int id);
 
-    @Query("UPDATE pswd SET titulo=:titulo,usuario=:usuario,password=:password WHERE id=:id")
+    @Query("UPDATE pswd SET titulo=:titulo, usuario=:usuario, password=:password WHERE id=:id")
     void update(int id, String titulo, String usuario, String password);
 
     @Update
