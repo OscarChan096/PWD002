@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
@@ -39,10 +40,14 @@ public class Editar extends AppCompatActivity {
     private EditText nombre;
     private EditText usuario;
     private EditText password;
+    private EditText limpPwds;
     private CheckBox may;
     private CheckBox min;
     private CheckBox num;
     private CheckBox sim;
+    private TextView up;
+    private TextView down;
+    private int limiteContrasenaContador;
 
     @Override
     public void onCreate(Bundle saved){
@@ -69,16 +74,44 @@ public class Editar extends AppCompatActivity {
         min = findViewById(R.id.chk_min);
         num = findViewById(R.id.chk_num);
         sim = findViewById(R.id.chk_sim);
+        up = findViewById(R.id.up);
+        down = findViewById(R.id.down);
+        limpPwds = findViewById(R.id.lim_pwds);
 
         nombre.setText(nombreStr);
         usuario.setText(usuarioStr);
         password.setText(passwordStr);
 
+        limiteContrasenaContador = Integer.parseInt(limpPwds.getText().toString());
+
         btnGenerarPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GeneratePassword gp = new GeneratePassword(may.isChecked(),min.isChecked(),num.isChecked(),sim.isChecked());
+                limiteContrasenaContador = Integer.parseInt(limpPwds.getText().toString());
+                GeneratePassword gp = new GeneratePassword(may.isChecked(),min.isChecked(),num.isChecked(),sim.isChecked(),limiteContrasenaContador);
                 password.setText(gp.generatePwd8());
+            }
+        });
+
+        // subir el numero de caracteres a la contraseña
+        up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (limiteContrasenaContador >= 8) {
+                    limiteContrasenaContador += 1;
+                    limpPwds.setText(limiteContrasenaContador+"");
+                }
+            }
+        });
+
+        // bajar el numero de caracteres a la contraseña
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (limiteContrasenaContador > 8){
+                    limiteContrasenaContador -= 1;
+                    limpPwds.setText(limiteContrasenaContador+"");
+                }
             }
         });
 

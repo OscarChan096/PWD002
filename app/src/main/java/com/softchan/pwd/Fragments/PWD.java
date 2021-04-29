@@ -78,7 +78,7 @@ public class PWD extends Fragment implements TextWatcher {
             case 0:
                 Pswd pswd = adapter.getPSWD(item.getGroupId());
                 Intent update = new Intent(getContext(), Editar.class);
-                Log.d("pwd edi+",pswd.getId()+"");
+                //Log.d("pwd edi+",pswd.getId()+"");
                 update.putExtra("id",pswd.getId()+"");
                 update.putExtra("titulo",pswd.getTitulo());
                 update.putExtra("usuario",pswd.getUsuario());
@@ -109,46 +109,4 @@ public class PWD extends Fragment implements TextWatcher {
     public void afterTextChanged(Editable editable) {
 
     }
-
-    /*@Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        dbAcces = DBAcces.getInstance(getContext());
-
-        busqueda = getActivity().findViewById(R.id.edt_busqueda);
-        busqueda.addTextChangedListener(this);
-
-        Button btnAdd = getActivity().findViewById(R.id.btn_add);
-
-        pswdList = dbAcces.getPswd();
-        //list = Read.getFiles();
-        adapter = new adapter_item(getActivity(),pswdList);
-        listView = getActivity().findViewById(R.id.listview);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                final int posicion = i;
-                Pswd pwd = pswdList.get(posicion);
-                Intent editar = new Intent(getActivity(), Editar.class);
-                editar.putExtra("posicion",posicion+"");
-                editar.putExtra("id",pwd.getId()+"");
-                editar.putExtra("nombre",pwd.getTitulo());
-                editar.putExtra("usuario",pwd.getUsuario());
-                editar.putExtra("password",pwd.getPassword());
-                startActivity(editar);
-            }
-        });
-
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent add = new Intent(getActivity(), Agregar.class);
-                startActivity(add);
-            }
-        });
-
-    }*/
 }

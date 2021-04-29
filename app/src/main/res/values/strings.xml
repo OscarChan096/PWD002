@@ -6,10 +6,10 @@
 
     <string name="PWD">PWD</string>
     <string name="configuraciones">Configuraciones</string>
-    <string name="version_fase">4 build 41 beta2</string>
+    <string name="version_fase">4.1.3 build 44 beta2</string>
     <string name="fase">beta2</string>
-    <string name="version">4.1.3 build 43</string>
-    <string name="build">build 43</string>
+    <string name="version">4.2.1 build 45</string>
+    <string name="build">build 44</string>
     <string name="by">By Oscar Chan</string>
     <string name="title_activity_main_pwd">MainPWD</string>
     <string name="title_home">Home</string>
