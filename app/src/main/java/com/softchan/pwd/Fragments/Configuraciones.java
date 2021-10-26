@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.softchan.pwd.Datos.Write;
 import com.softchan.pwd.Internet.Upload;
 import com.softchan.pwd.R;
+import com.softchan.pwd.dbroom.DBAcces;
 
 public class Configuraciones extends Fragment {
 
@@ -27,41 +28,30 @@ public class Configuraciones extends Fragment {
 
         final EditText passwordnew = getActivity().findViewById(R.id.config_paswd_edit);
         Button btn = getActivity().findViewById(R.id.btn_save_paswd_edit);
-        //Button btnUpload = getActivity().findViewById(R.id.btn_upload);
-        //Button btnSyncPin = getActivity().findViewById(R.id.btn_sync_pin);
+        Button backup = getActivity().findViewById(R.id.backup);
+        Button btnSyncPin = getActivity().findViewById(R.id.syncpin);
         //Button btnDownload = getActivity().findViewById(R.id.btn_download);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String sPasswordUsuario = passwordnew.getText().toString();
-                Write.saveUserInf("",sPasswordUsuario,1);
-            }
+        btn.setOnClickListener(view -> {
+            String sPasswordUsuario = passwordnew.getText().toString();
+            Write.saveUserInf("",sPasswordUsuario,1);
         });
 
-        /*btnUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Thread sincronizacion = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Upload up = new Upload(getContext());
-                        up.readAndUpload();
-                    }
-                });
-                sincronizacion.start();
-            }
+        backup.setOnClickListener(view -> {
+            DBAcces dbAcces = DBAcces.getInstance(getContext());
+            Thread sincronizacion = new Thread(() -> {
+                Upload up = new Upload(getContext(),dbAcces.getPswd());
+                up.initBackup();
+            });
+            sincronizacion.start();
         });
 
-        btnSyncPin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Upload up = new Upload(getContext());
-                up.syncPin();
-            }
+        btnSyncPin.setOnClickListener(view -> {
+            Upload up = new Upload(getContext());
+            up.syncPin();
         });
 
-        btnDownload.setOnClickListener(new View.OnClickListener() {
+        /*btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(),"Sin funcionamiento",Toast.LENGTH_SHORT).show();

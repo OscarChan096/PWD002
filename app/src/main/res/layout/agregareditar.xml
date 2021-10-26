@@ -38,13 +38,15 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:weightSum="10">
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="263dp"
+                android:layout_weight="7"
+                android:minWidth="0dp"
                 android:maxWidth="500dp"
                 android:hint="@string/password"
                 android:padding="10dp"
@@ -57,6 +59,7 @@
             <EditText
                 android:id="@+id/lim_pwds"
                 android:text="8"
+                android:layout_weight="1"
                 android:padding="10dp"
                 android:textColor="@color/textBtn"
                 android:layout_width="wrap_content"
@@ -66,7 +69,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_weight="2">
 
                 <TextView
                     android:id="@+id/up"

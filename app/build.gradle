@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.studio.chan.pwd"
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion 25
+        targetSdkVersion 30
         versionCode 4
-        versionName "4.2.1 b45"
+        versionName "4.3.3 b49"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
     }
@@ -28,6 +28,7 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'jp.wasabeef:blurry:2.0.2'
+    implementation 'androidx.work:work-runtime:2.6.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'

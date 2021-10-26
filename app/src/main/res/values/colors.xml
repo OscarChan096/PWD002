@@ -10,4 +10,5 @@
     <color name="bgplash">#cea168</color>
     <color name="error">#DC0000</color>
     <color name="bnv">#3C3C3C</color>
+    <color name="border">#803C3C3C</color>
 </resources>

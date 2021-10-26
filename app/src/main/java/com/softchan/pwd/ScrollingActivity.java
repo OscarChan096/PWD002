@@ -79,12 +79,10 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher 
             finish();
         }else{
             mensajeBienvenida.setText("Contraseña incorrecta");
-            mensajeBienvenida.setTextColor(getResources().getColor(R.color.error));
-            new Handler().postDelayed(new Runnable(){
-                public void run(){
-                    mensajeBienvenida.setTextColor(getResources().getColor(R.color.textBtn));
-                    mensajeBienvenida.setText(dtn());
-                };
+            mensajeBienvenida.setTextColor(getColor(R.color.error));
+            new Handler().postDelayed(() -> {
+                mensajeBienvenida.setTextColor(getColor(R.color.textBtn));
+                mensajeBienvenida.setText(dtn());
             }, 1000);
         }
     }

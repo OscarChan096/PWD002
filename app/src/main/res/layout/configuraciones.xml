@@ -34,4 +34,35 @@
             android:layout_gravity="center"
             android:background="@drawable/boton_redondo"/>
 
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textBtn"
+            android:textStyle="bold|italic"
+            android:text=" # Respaldar datos y PWDS"/>
+
+        <Button
+            android:id="@+id/backup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Backup PWDS"
+            android:textColor="@color/textBtn"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/boton_redondo"/>
+
+        <Button
+            android:id="@+id/syncpin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sincronizar Datos de usuario"
+            android:textColor="@color/textBtn"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/boton_redondo"/>
+
 </LinearLayout>

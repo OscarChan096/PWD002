@@ -7,109 +7,77 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.softchan.pwd.Datos.Read;
+import com.softchan.pwd.Objeto.UserInf;
+import com.softchan.pwd.dbroom.Pswd;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class Upload{
-    /*private StringRequest stringRequest;
+public class Upload implements Response.Listener<JSONObject>,Response.ErrorListener {
+    private RequestQueue requestQueue;
+    private JsonObjectRequest jsonObjectRequest;
     private Context context;
+    private List<Pswd> dataList;
 
     public Upload(Context context){
         this.context = context;
+        requestQueue = Volley.newRequestQueue(context);
+    }
+
+    public Upload(Context context, List<Pswd> dataList){
+        this.context = context;
+        this.dataList = dataList;
+        requestQueue = Volley.newRequestQueue(context);
     }
 
     // lee los datos pwd local en un ciclo para guardarlos en la base de datos
-    public void readAndUpload(){
-        ArrayList<pswdExtends> listDatosPWDLocal = Read.getFiles();
-        for (pswdExtends pwd : listDatosPWDLocal){
-            conectarWebService(pwd.getTitulo(),pwd.getUsuario(),pwd.getPassword());
+    public void initBackup(){
+        for (Pswd pwd : dataList){
+            String password = pwd.getPassword().replaceAll("#","SHARP");
+            conectarWebService(pwd.getId()+"",pwd.getTitulo(),pwd.getUsuario(),password,"0","0","0");
+            //Log.d("init",pwd.getId()+" "+pwd.getTitulo()+" "+pwd.getUsuario()+" "+password);
         }
     }
 
     // conecta y guarda los datos en la base de datos
-    private void conectarWebService(final String titulo, final String usuario, final String contrasenia) {
+    private void conectarWebService(String id, String titulo, String usuario, String password, String dd, String mm, String yyyy) {
 
-        String ip="http://192.168.0.9"; // el usuario ingresaria la ip
+        String url="http://192.168.0.9/pwsd/php/registro.php?id="+id+"&title="+titulo+"&user="+usuario+"&password="+password+"&day="+dd+"&month="+mm+"&year="+yyyy;
+        url = url.replace(" ","%20");
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+        requestQueue.add(jsonObjectRequest);
 
-        String url=ip+"/pwds/registro.php?";
-
-        stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-                //Toast.makeText(context,"No se ha registrado ",Toast.LENGTH_SHORT).show();
-                //Log.i("onRespinse else: ",""+response);
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context,"No se ha podido conectar readAndUpload",Toast.LENGTH_SHORT).show();
-                //Log.d("onErrorResponse"," no se a podido conectar readAndUpload"+error.getMessage());
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                Map<String,String> parametros=new HashMap<>();
-                parametros.put("titulo",titulo);
-                parametros.put("usuario",usuario);
-                parametros.put("contrasenia",contrasenia);
-
-                return parametros;
-            }
-        };
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        VolleySingleton.getIntanciaVolley(context).addToRequestQueue(stringRequest);
     }
 
-    // sincroniza el pin del telefono a la base de datos
+    // sincroniza pin y nombre de usuario del telefono a la base de datos
     public void syncPin(){
-        final String pin = Read.getPassword(context);
+        final List<String> userInf = Read.getUserInf();
 
-        String ip="http://192.168.0.9"; // el usuario ingresaria la ip
+        String url="http://192.168.0.9/pwsd/php/syncuserinf.php?id=1"+"&user="+userInf.get(0)+"&password="+userInf.get(1);
+        url = url.replace(" ","%20");
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+        requestQueue.add(jsonObjectRequest);
 
-        String url=ip+"/pwds/syncpin.php?";
+    }
 
-        stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        Log.d("onErrorResponse",error.getMessage());
+    }
 
-            @Override
-            public void onResponse(String response) {
-
-                if (response.trim().equalsIgnoreCase("registra")){
-                    Toast.makeText(context,"Sincronizado!",Toast.LENGTH_SHORT).show();
-                    Log.d("onRespnse if","Sincronizado! "+response);
-                }else{
-                    //Toast.makeText(context,"Error al sincronizar pin ",Toast.LENGTH_SHORT).show();
-                    //Log.i("onRespinse else: ",""+response);
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context,"No se ha podido conectar pin",Toast.LENGTH_SHORT).show();
-                //Log.d("onErrorResponse"," no se a podido conectar pin"+error.getMessage());
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                Map<String,String> parametros=new HashMap<>();
-                parametros.put("pin",pin);
-
-                return parametros;
-            }
-        };
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        VolleySingleton.getIntanciaVolley(context).addToRequestQueue(stringRequest);
-
-    }*/
-
+    @Override
+    public void onResponse(JSONObject response) {
+        Log.d("onResponse",response.toString());
+    }
 }

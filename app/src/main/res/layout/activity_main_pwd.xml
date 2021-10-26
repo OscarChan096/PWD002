@@ -6,27 +6,24 @@
     android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Actividades.MainPWD"
-    android:paddingTop="10dp">
+    tools:context=".Actividades.MainPWD">
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/title_home"
+        android:background="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="105dp"
-        android:layout_marginRight="105dp"
-        app:labelVisibilityMode="selected"
+        app:labelVisibilityMode="unlabeled"
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="0dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
         android:background="@drawable/boton_redondo_splash"
         app:itemBackground="@android:color/transparent"
         app:itemIconTint="@color/textBtn"

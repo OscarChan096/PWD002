@@ -129,7 +129,7 @@ public class GeneratePassword {
         }
 
         public char simbolos(){
-            char[] chars = {'@','-','_','#'};
+            char[] chars = {'@','-','_'};
             int random = (int)(Math.random()*(chars.length));
             //Log.d("sim",chars[random]+"");
             return chars[random];
@@ -138,7 +138,7 @@ public class GeneratePassword {
         public int numeros(){
             int[] num = {0,1,2,3,4,5,6,7,8,9};
             int random = (int)(Math.random()*(num.length));
-            Log.d("num",num[random]+"");
+            //Log.d("num",num[random]+"");
             return num[random];
         }
 
