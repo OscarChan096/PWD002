@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
+    android:background="@color/background"
     android:padding="25dp">
 
     <ScrollView
@@ -21,7 +22,8 @@
                 android:layout_margin="15dp"/>
 
             <TextView
-                android:text="BIENVENIDO"
+                android:id="@+id/saludo"
+                android:text="@string/saludo"
                 android:textStyle="bold"
                 android:textSize="35sp"
                 android:textColor="@color/textBtn"
@@ -30,33 +32,38 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="25dp"/>
 
-            <EditText
-                android:id="@+id/ed_welcome_usuario"
-                android:textColorHint="@color/textBtn"
-                android:hint="Ingrese su nombre"
-                android:textColor="@color/textBtn"
-                android:drawableStart="@drawable/ic_account_circle"
-                android:drawablePadding="10dp"
-                android:layout_gravity="center"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/nombre"
+                android:textColorHint="@color/bnv"
                 android:layout_marginTop="50dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_account_circle" />
+                android:layout_gravity="center">
 
-            <EditText
-                android:id="@+id/ed_welcome_password"
-                android:textColorHint="@color/textBtn"
-                android:hint="Ingrese contraseña"
-                android:maxLength="4"
-                android:textColor="@color/textBtn"
-                android:inputType="numberPassword"
-                android:drawablePadding="10dp"
-                android:drawableStart="@drawable/key_outline"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_welcome_usuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textBtn"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/key_outline" />
+                android:hint="@string/password"
+                android:textColorHint="@color/bnv"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_welcome_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textBtn"
+                    android:inputType="numberPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btn_welcome_guardar_usuario"

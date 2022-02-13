@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".UI.LightDarkApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_pwd"
         android:label="@string/app_name"
@@ -52,6 +53,45 @@
         <!-- welcome -->
         <activity
             android:name=".Actividades.WelcomeToApp"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <!-- addCard -->
+        <activity
+            android:name=".Actividades.AddCard"
+            android:label="Agregar Tarjeta"
+            android:parentActivityName=".Actividades.Cards"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <!-- Cards -->
+        <activity
+            android:name=".Actividades.Cards"
+            android:label="@string/tarjetas"
+            android:parentActivityName=".Actividades.MainPWD"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <!-- EditCards -->
+        <activity
+            android:name=".Actividades.EditarCards"
+            android:label="Editar Tarjetas"
+            android:parentActivityName=".Actividades.Cards"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <!-- Settings -->
+        <activity
+            android:name=".Actividades.Settings"
+            android:label="Configuraciones"
+            android:parentActivityName=".Actividades.Settings"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".Actividades.SettingsActivity"
+            android:label="Configuraciones"
+            android:parentActivityName=".Actividades.MainPWD"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 

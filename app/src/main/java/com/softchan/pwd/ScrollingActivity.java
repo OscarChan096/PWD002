@@ -37,9 +37,8 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // - - - - -   - - - - agregar seguridad biometrica (sensor de huella) - - - -  - - - - - - - -
 
         firstSettings();
 

@@ -10,5 +10,7 @@ public class Paths {
    public static File pathInf = new File(getExternalStorageDirectory(),"Android/data/com.studio.chan.pwd/filesx/inf");
 
    public static String nameUserInfFile = "user.inf";
+   public static String typeUser = "user";
+   public static String typePassword = "password";
 
 }

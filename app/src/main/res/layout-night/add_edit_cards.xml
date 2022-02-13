@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_banco"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:hint="@string/nombre_banco"
+        android:textColorHint="@color/colorHint"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nombre_banco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/nombre_banco"
+            android:textColorHint="@color/colorHint"
+            android:padding="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_num_cuenta"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:hint="@string/num_cuenta"
+        android:textColorHint="@color/colorHint"
+        app:layout_constraintTop_toBottomOf="@+id/edt_banco"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/num_cuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            android:hint="@string/num_cuenta"
+            android:textColorHint="@color/colorHint"
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="15"
+        android:layout_margin="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_num_cuenta">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_fecha"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/fecha"
+            android:textColorHint="@color/bnv"
+            tools:ignore="MissingConstraints"
+            android:layout_weight="5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="date"
+                android:padding="15dp"
+                android:hint="@string/fecha"
+                android:textColorHint="@color/colorHint"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_cvv"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/cvv"
+            android:textColorHint="@color/colorHint"
+            tools:ignore="MissingConstraints"
+            android:layout_weight="5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cvv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/cvv"
+                android:textColorHint="@color/colorHint"
+                android:inputType="number"
+                android:padding="15dp"
+                tools:ignore="TextContrastCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_nip"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/nip"
+            android:textColorHint="@color/colorHint"
+            tools:ignore="MissingConstraints"
+            android:layout_weight="5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="number"
+                android:hint="@string/nip"
+                android:textColorHint="@color/colorHint"
+                android:padding="15dp"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/tarjeta_virtual"
+        android:textColorHint="@color/black"
+        android:hint="@string/tarjeta_virtual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/linear"
+        app:layout_constraintStart_toStartOf="@+id/info"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/banca_movil"
+        android:textColorHint="@color/black"
+        android:hint="@string/banca_movil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/linear"
+        app:layout_constraintLeft_toRightOf="@+id/tarjeta_virtual"/>
+
+    <TextView
+        android:id="@+id/info"
+        android:textColor="@color/black"
+        android:text="@string/info_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/tarjeta_virtual"
+        app:layout_constraintStart_toStartOf="@+id/edt_user_app"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_user_app"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:hint="@string/user"
+        android:textColorHint="@color/colorHint"
+        app:layout_constraintTop_toBottomOf="@+id/info"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_app"
+            android:padding="15dp"
+            android:enabled="false"
+            android:hint="@string/user"
+            android:textColorHint="@color/colorHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_password_app"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:hint="@string/password"
+        android:textColorHint="@color/colorHint"
+        app:layout_constraintTop_toBottomOf="@+id/edt_user_app"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_app"
+            android:padding="15dp"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/password"
+            android:textColorHint="@color/colorHint"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,9 @@
 package com.softchan.pwd.Datos;
 
-import android.content.Context;
-import android.widget.Toast;
+import static com.softchan.pwd.Datos.Paths.nameUserInfFile;
+import static com.softchan.pwd.Datos.Paths.pathInf;
 
 import com.softchan.pwd.Objeto.UserInf;
-import com.softchan.pwd.Objeto.inf;
-import com.softchan.pwd.Objeto.infoApp;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,18 +18,16 @@ import java.util.ArrayList;
 
 public class Read {
 
+    // verifica si existen datos de usuario
     public static boolean isUserInf(){
-        File file = new File(Paths.pathInf.getAbsolutePath(), Paths.nameUserInfFile);
-        if (file.exists())
-            return true;
-        else
-            return false;
+        File file = new File(pathInf.getAbsolutePath(), nameUserInfFile);
+        return file.exists() ? true : false;
     }
 
     // lee los datos del usuario
     public static ArrayList<String> getUserInf() {
         ArrayList<String> userInfList = new ArrayList<>();
-        File fileName = new File(Paths.pathInf.getAbsolutePath(), Paths.nameUserInfFile);
+        File fileName = new File(pathInf.getAbsolutePath(), nameUserInfFile);
         try {
             ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
 
@@ -49,12 +45,6 @@ public class Read {
         }
 
         return userInfList;
-    }
-
-    // verifica la existencia de contraseña
-    public static boolean isExistsPswd() {
-        File fileName = new File(Paths.pathInf.getAbsolutePath(), "pswd.inf");
-        return (fileName.exists()) ? true : false;
     }
 
 }

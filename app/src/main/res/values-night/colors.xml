@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000</color>
+    <color name="colorPrimaryDark">@android:color/transparent</color>
+    <color name="colorAccent">#676767</color>
+    <color name="btn">#cea168</color>
+    <color name="tiles_night">#CB535353</color>
+    <color name="btnSplash">#0b39a1</color>
+    <color name="btnFab">#0D0D0D</color>
+    <color name="textBtn">#fff</color>
+    <color name="bgplash">#cea168</color>
+    <color name="error">#DC0000</color>
+    <color name="bnv">#3C3C3C</color>
+    <color name="border">#803C3C3C</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="background">#000</color>
+    <color name="background_id">#fff</color>
+    <color name="textBtnTiles">#fff</color>
+    <color name="background_tiles_item">#000</color>
+    <color name="colorHint">#757575</color>
+    <color name="categoriaFisica">#431497</color>
+    <color name="categoriaDigital">#AFA127</color>
+</resources>

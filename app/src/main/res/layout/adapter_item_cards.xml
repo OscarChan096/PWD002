@@ -1,0 +1,152 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:background="@color/background"
+    android:layout_margin="3dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:id="@+id/bck_categoria"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="left"
+        android:background="@color/black">
+        <TextView
+            android:id="@+id/tipo_de_tarjeta"
+            android:text="t\n a\n r\n j\n e\n t\n a\n"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="37dp">
+
+            <TextView
+                android:text="@string/nombre_banco"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:id="@+id/nombre_banco"
+                android:layout_marginTop="1dp"
+                android:padding="1dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/categoria"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/num_cuenta"
+            android:id="@+id/num_cuenta_item"
+            android:padding="1dp"
+            android:layout_marginLeft="37dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="37dp"
+            android:weightSum="15">
+
+            <TextView
+                android:text="@string/fecha"
+                android:id="@+id/fecha_item"
+                android:padding="1dp"
+                android:layout_weight="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/cvv"
+                android:layout_weight="3"
+                android:padding="1dp"
+                android:textStyle="italic|bold"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/cvv_item"/>
+
+            <TextView
+                android:text="@string/cvv"
+                android:id="@+id/cvv_item"
+                android:layout_weight="3"
+                android:padding="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/nip"
+                android:layout_weight="3"
+                android:padding="1dp"
+                android:textStyle="italic|bold"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/nip_item"/>
+
+            <TextView
+                android:text="@string/nip"
+                android:id="@+id/nip_item"
+                android:layout_weight="3"
+                android:padding="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/info"
+            android:text="@string/datosApp"
+            android:padding="1dp"
+            android:layout_marginLeft="37dp"
+            android:textStyle="bold|italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/user"
+            android:id="@+id/userapp_item"
+            android:padding="1dp"
+            android:layout_marginLeft="37dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/password"
+            android:id="@+id/passwordapp_item"
+            android:padding="1dp"
+            android:layout_marginLeft="37dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

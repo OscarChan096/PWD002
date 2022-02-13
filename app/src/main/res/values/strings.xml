@@ -8,7 +8,7 @@
     <string name="configuraciones">Configuraciones</string>
     <string name="version_fase">4.2.0 build 46 beta2</string>
     <string name="fase">beta2</string>
-    <string name="version">4.3.5 build 51</string>
+    <string name="version">4.4 build 52</string>
     <string name="build">build 46</string>
     <string name="by">By Oscar Chan</string>
     <string name="title_activity_main_pwd">MainPWD</string>
@@ -18,4 +18,32 @@
     <string name="soft">SOFT</string>
     <string name="chan">CHAN</string>
     <string name="todo">TODO</string>
+    <string name="credit">credit</string>
+    <string name="add">add</string>
+    <string name="settings">settings</string>
+    <string name="nombre_banco">Nombre del banco</string>
+    <string name="num_cuenta">Numero de tarjeta</string>
+    <string name="fecha">MM/YYYY</string>
+    <string name="cvv">CVV:</string>
+    <string name="user">USUARIO/# TELEFONO</string>
+    <string name="info_card"># Informacion para inicio de la app del banco</string>
+    <string name="tarjeta_virtual">Virtual/Digital</string>
+    <string name="nombre">Nombre</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="saludo">Buenos dias</string>
+    <string name="banca_movil">Banca Movil</string>
+    <string name="nip">NIP:</string>
+
+    <string name="settings_theme_key" translatable="false">theme</string>
+    <string name="settings_fragment_tab" translatable="false">settings_fragment_tab</string>
+    <string name="settings_theme_title">Temas</string>
+    <string name="settings_theme_dialog_title">Escoge un tema</string>
+    <string name="settings_toolbar">Settings</string>
+    <string name="sync">Sincronizacion de datos</string>
+    <string name="apariencia"># Apariencia/Interfaz Visual</string>
+    <string name="theme">Temas</string>
+    <string name="usuario">Usuario</string>
+    <string name="tarjetas">Tarjetas</string>
+    <string name="datosApp"># Datos para iniciar sesion en la app del banco</string>
+
 </resources>

@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by oscar on 10/02/20.
@@ -81,22 +82,22 @@ public class Write {
         boolean flag = false;
         try {
             File fileName = new File(Paths.pathInf.getAbsolutePath(), Paths.nameUserInfFile);
-            if(id == 0){
-                if (!Paths.pathInf.isDirectory()){
+            if (id == 0) { // cuando el id es 0 significa que no se han creado datos de usuario
+                if (!Paths.pathInf.isDirectory()) {
                     Paths.pathInf.mkdirs();
                     //Log.d("Write","mkdirs");
-                }else{
+                } else {
                     if (!fileName.exists()) {
                         //Log.d("write","filenameexistls");
                         FileOutputStream fileOut = new FileOutputStream(fileName);
                         ObjectOutputStream salida = new ObjectOutputStream(fileOut);
-                        UserInf pwd = new UserInf(user,password);
+                        UserInf pwd = new UserInf(user, password);
                         salida.writeObject(pwd);
                         flag = true;
                         //Log.d("Write",flag+" guardado");
                     }
                 }
-            }else {
+            } else {
                 FileOutputStream fileOut = new FileOutputStream(fileName);
                 ObjectOutputStream salida = new ObjectOutputStream(fileOut);
                 UserInf pwd = new UserInf();
@@ -111,6 +112,41 @@ public class Write {
 
         return flag;
     }
+
+    public static boolean saveUserInf(String data, String type) {
+        boolean flag = false;
+        List<String> userInf = Read.getUserInf();
+        try {
+            File fileName = new File(Paths.pathInf.getAbsolutePath(), Paths.nameUserInfFile);
+            FileOutputStream fileOut = new FileOutputStream(fileName);
+            ObjectOutputStream salida = new ObjectOutputStream(fileOut);
+            UserInf pwd = new UserInf();
+
+            switch (type){
+                case "user":
+                    pwd.setUser(data);
+                    pwd.setPasswordApp(userInf.get(1));
+                    salida.writeObject(pwd);
+                    flag = true;
+                    break;
+                case "password":
+                    pwd.setUser(userInf.get(0));
+                    pwd.setPasswordApp(data);
+                    salida.writeObject(pwd);
+                    flag = true;
+                    break;
+                default:
+                    break;
+            }
+
+        } catch (FileNotFoundException fnfe) {
+        } catch (IOException ioe) {
+            //Log.d("IOE",ioe.getMessage());
+        }
+
+        return flag;
+    }
+
 
     public static void SaveInf(String passwordnew, View view) {
         String name = "pswd.inf";
@@ -158,7 +194,8 @@ public class Write {
 
 
         } catch (FileNotFoundException fnfe) {
-        } catch (IOException ioe) { }
+        } catch (IOException ioe) {
+        }
     }
 
 }

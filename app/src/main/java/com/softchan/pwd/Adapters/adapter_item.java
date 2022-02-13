@@ -37,9 +37,9 @@ public class adapter_item extends RecyclerView.Adapter<adapter_item.ViewHolder> 
 
     private List<Pswd> pswdDataList;
     private List<Pswd> pswdDataListCopia = new ArrayList<>();
-    private Activity context;
+    private Context context;
 
-    public adapter_item(Activity context, List<Pswd> pswdDataList){
+    public adapter_item(Context context, List<Pswd> pswdDataList){
         this.context = context;
         this.pswdDataList = pswdDataList;
         this.pswdDataListCopia.addAll(pswdDataList);
@@ -123,14 +123,11 @@ public class adapter_item extends RecyclerView.Adapter<adapter_item.ViewHolder> 
             password = itemView.findViewById(R.id.password_adapter);
             cardView = itemView.findViewById(R.id.cardview);
             cardView.setOnCreateContextMenuListener(this);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ClipData clip = ClipData.newPlainText("simple text",password.getText().toString());
-                    clipboard.setPrimaryClip(clip); // probar funcion
-                    Toast.makeText(context,"Contraseña copiada",Toast.LENGTH_SHORT).show();
-                    //Log.d("clipboard","copiado al portapapeles");
-                }
+            cardView.setOnClickListener(v -> {
+                ClipData clip = ClipData.newPlainText("simple text",password.getText().toString());
+                clipboard.setPrimaryClip(clip); // probar funcion
+                Toast.makeText(context,"Contraseña copiada",Toast.LENGTH_SHORT).show();
+                //Log.d("clipboard","copiado al portapapeles");
             });
         }
 
