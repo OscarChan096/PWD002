@@ -29,7 +29,6 @@ public class Cards extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle saved){
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(saved);
         setContentView(R.layout.app_bar_cards);
         Toolbar toolbar = findViewById(R.id.toolbar_cards);
@@ -58,7 +57,7 @@ public class Cards extends AppCompatActivity {
                 //Log.d("pwd edi+",pswd.getId()+"");
                 update.putExtra("id",card.getId()+"");
                 update.putExtra("banco",card.getBanco());
-                update.putExtra("numcuenta",card.getNumCuenta()+"");
+                update.putExtra("numcuenta",card.getNumeroDeCuenta()+"");
                 update.putExtra("fecha",card.getFecha());
                 update.putExtra("cvv",card.getCvv()+"");
                 update.putExtra("nip",card.getNip()+"");

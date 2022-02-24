@@ -43,7 +43,6 @@ public class Agregar extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle saved){
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(saved);
         setContentView(R.layout.app_bar_nuevo);
         Toolbar toolbar = findViewById(R.id.toolbar_nuevo);

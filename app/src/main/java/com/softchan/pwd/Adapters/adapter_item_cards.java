@@ -66,10 +66,13 @@ public class adapter_item_cards extends RecyclerView.Adapter<adapter_item_cards.
             holder.fecha.setText(card.getFecha());
             holder.cvv.setText(card.getCvv() + "");
             holder.nip.setText(card.getNip() + "");
-            if (card.getUsuarioApp() == null)
-                holder.info.setText("");
-            holder.usuario_app.setText(card.getUsuarioApp());
-            holder.password_app.setText(card.getPasswordApp());
+            if (card.getUsuarioApp() != null) {
+                holder.usuario_app.setText(card.getUsuarioApp());
+                holder.password_app.setText(card.getPasswordApp());
+            }else{
+                holder.usuario_app.setText("S/U");
+                holder.password_app.setText("S/P");
+            }
         }else{
             final String categoria = "d\ni\ng\ni\nt\na\nl";
             holder.bck_categoria.setBackgroundResource(R.color.categoriaDigital);
@@ -79,10 +82,13 @@ public class adapter_item_cards extends RecyclerView.Adapter<adapter_item_cards.
             holder.fecha.setText(card.getFecha());
             holder.cvv.setText(card.getCvv() + "");
             holder.nip.setText(card.getNip() + "");
-            if (card.getUsuarioApp() == null)
-                holder.info.setText("");
-            holder.usuario_app.setText(card.getUsuarioApp());
-            holder.password_app.setText(card.getPasswordApp());
+            if (card.getUsuarioApp() != null) {
+                holder.usuario_app.setText(card.getUsuarioApp());
+                holder.password_app.setText(card.getPasswordApp());
+            }else{
+                holder.usuario_app.setText("S/U");
+                holder.password_app.setText("S/P");
+            }
         }
     }
 

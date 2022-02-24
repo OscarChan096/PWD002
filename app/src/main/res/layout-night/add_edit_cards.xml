@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Actividades.AddCard"
     android:background="@color/background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -22,7 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:hint="@string/nombre_banco"
             android:textColorHint="@color/colorHint"
             android:padding="15dp" />
 
@@ -44,7 +44,6 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:inputType="number"
-            android:hint="@string/num_cuenta"
             android:textColorHint="@color/colorHint"
             android:padding="15dp"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
@@ -77,7 +76,6 @@
                 android:background="@android:color/transparent"
                 android:inputType="date"
                 android:padding="15dp"
-                android:hint="@string/fecha"
                 android:textColorHint="@color/colorHint"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -97,7 +95,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="@string/cvv"
                 android:textColorHint="@color/colorHint"
                 android:inputType="number"
                 android:padding="15dp"
@@ -121,7 +118,6 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:inputType="number"
-                android:hint="@string/nip"
                 android:textColorHint="@color/colorHint"
                 android:padding="15dp"
                 tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
@@ -132,7 +128,7 @@
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/tarjeta_virtual"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/bnv"
         android:hint="@string/tarjeta_virtual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -142,7 +138,7 @@
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/banca_movil"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/bnv"
         android:hint="@string/banca_movil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -152,7 +148,7 @@
 
     <TextView
         android:id="@+id/info"
-        android:textColor="@color/black"
+        android:textColor="@color/textBtn"
         android:text="@string/info_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -174,7 +170,6 @@
             android:id="@+id/user_app"
             android:padding="15dp"
             android:enabled="false"
-            android:hint="@string/user"
             android:textColorHint="@color/colorHint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -200,7 +195,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:hint="@string/password"
             android:textColorHint="@color/colorHint"/>
 
     </com.google.android.material.textfield.TextInputLayout>

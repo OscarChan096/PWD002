@@ -44,7 +44,7 @@ public class EditarCards extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle saved){
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(saved);
         setContentView(R.layout.app_bar_addcard);
         Toolbar toolbar = findViewById(R.id.toolbar_addcard);
@@ -56,7 +56,7 @@ public class EditarCards extends AppCompatActivity {
         Intent i = getIntent();
         id = Integer.parseInt(i.getStringExtra("id"));
         String strNombreBanco = i.getStringExtra("banco");
-        int intNumCuenta = Integer.parseInt(i.getStringExtra("numcuenta"));
+        String strNumCuenta = i.getStringExtra("numcuenta");
         String strFecha = i.getStringExtra("fecha");
         int intCvv = Integer.parseInt(i.getStringExtra("cvv"));
         int intNip = Integer.parseInt(i.getStringExtra("nip"));
@@ -75,29 +75,26 @@ public class EditarCards extends AppCompatActivity {
         banca_movil = findViewById(R.id.banca_movil);
 
         nombre_banco.setText(strNombreBanco);
-        num_cuenta.setText(intNumCuenta);
+        num_cuenta.setText(strNumCuenta);
         fecha.setText(strFecha);
-        cvv.setText(intCvv);
-        nip.setText(intNip);
+        cvv.setText(intCvv+"");
+        nip.setText(intNip+"");
         if (intTarjetaVirtual == 1)
             tarjeta_virtual.setChecked(true);
-        if(strUserApp.length() > 0){
+        if(strUserApp != null){
             banca_movil.setChecked(true);
             user_app.setText(strUserApp);
             password_app.setText(strPasswordApp);
             flagMovil = true;
         }
 
-        banca_movil.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    user_app.setEnabled(true);
-                    password_app.setEnabled(true);
-                    flagMovil = true;
-                }else{
-                    flagMovil = false;
-                }
+        banca_movil.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                user_app.setEnabled(true);
+                password_app.setEnabled(true);
+                flagMovil = true;
+            }else{
+                flagMovil = false;
             }
         });
 
