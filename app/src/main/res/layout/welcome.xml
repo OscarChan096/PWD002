@@ -43,6 +43,7 @@
                 android:hint="@string/nombre"
                 android:textColorHint="@color/colorHint"
                 app:hintTextColor="@color/colorHint"
+                android:padding="@dimen/padding_layout_input_text"
                 android:layout_marginTop="50dp"
                 android:gravity="center"
                 android:layout_gravity="center">
@@ -64,6 +65,7 @@
                 android:hint="@string/password"
                 android:textColorHint="@color/colorHint"
                 app:hintTextColor="@color/colorHint"
+                android:padding="@dimen/padding_layout_input_text"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center">
 

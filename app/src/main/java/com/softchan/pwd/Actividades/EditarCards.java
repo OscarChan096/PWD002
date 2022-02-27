@@ -40,6 +40,7 @@ public class EditarCards extends AppCompatActivity {
     private SwitchCompat tarjeta_virtual;
     private SwitchCompat banca_movil;
     private boolean flagMovil;
+    private int id;
 
     @Override
     public void onCreate(Bundle saved){
@@ -53,7 +54,7 @@ public class EditarCards extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         Intent i = getIntent();
-        int id = Integer.parseInt(i.getStringExtra("id"));
+        id = Integer.parseInt(i.getStringExtra("id"));
         String strNombreBanco = i.getStringExtra("banco");
         String strNumCuenta = i.getStringExtra("numcuenta");
         String strFecha = i.getStringExtra("fecha");
@@ -81,10 +82,12 @@ public class EditarCards extends AppCompatActivity {
         nip.setText(intNip+"");
         if (intTarjetaVirtual == 1)
             tarjeta_virtual.setChecked(true);
-        if(strUserApp != null){
+        if(!strUserApp.equals("S/E")){
             banca_movil.setChecked(true);
             user_app.setText(strUserApp);
             password_app.setText(strPasswordApp);
+            user_app.setEnabled(true);
+            password_app.setEnabled(true);
             flagMovil = true;
         }
 
@@ -141,25 +144,21 @@ public class EditarCards extends AppCompatActivity {
                 Matcher nipMatch = cvvNipRgx.matcher(strNip);
                 Matcher userAppMatch = userAppRgx.matcher(strUserApp.toUpperCase());
 
-                boolean bolNombreBanco = nombreBancoMatch.matches() ? true:false;
-                boolean bolNumCuenta = numCuentaMatch.matches() ? true:false;
-                boolean bolFecha = fechaMatch.matches() ? true:false;
-                boolean bolCvv = cvvMatch.matches() ? true:false;
-                boolean bolNip = nipMatch.matches() ? true:false;
-                boolean bolUserApp = userAppMatch.matches() ? true:false;
-                boolean bolPasswordApp = strPasswordApp.length() > 0 ? true:false;
+                boolean bolNombreBanco = nombreBancoMatch.matches();
+                boolean bolNumCuenta = numCuentaMatch.matches();
+                boolean bolFecha = fechaMatch.matches();
+                boolean bolCvv = cvvMatch.matches();
+                boolean bolNip = nipMatch.matches();
+                boolean bolUserApp = userAppMatch.matches();
+                boolean bolPasswordApp = strPasswordApp.length() > 0;
 
                 int intTarjetaDigital = tarjeta_virtual.isChecked() ? 1:0;
 
                 // si el switch de la banca movil esta activo pedira todos los datos de lo contrario solo pedira banco,cuenta,fecha,cvv
                 if (flagMovil) {
                     if (bolNombreBanco && bolNumCuenta && bolFecha && bolCvv && bolNip && bolUserApp && bolPasswordApp){
-                        // revisar si funcionan las regex
-                        // revisar sin funciona lo de activar los datos de la banca movil
-                        Card card = new Card(strNombreBanco,Integer.parseInt(strNumCuenta),
-                                Integer.parseInt(strNip), strFecha, Integer.parseInt(strCvv),
-                                strUserApp, strPasswordApp, intTarjetaDigital);
-                        dbAcces.addCard(card);
+                        dbAcces.updateCard(id,strNombreBanco,strNumCuenta,Integer.parseInt(strNip),
+                                strFecha,Integer.parseInt(strCvv),strUserApp,strPasswordApp,intTarjetaDigital);
                         nombre_banco.setText("");
                         num_cuenta.setText("");
                         fecha.setText("");
@@ -172,11 +171,10 @@ public class EditarCards extends AppCompatActivity {
                         user_app.setEnabled(false);
                         password_app.setEnabled(false);
                     }
-                }else{
+                }else{ // no se actualiza el usuario
                     if (bolNombreBanco && bolNumCuenta && bolFecha && bolCvv && bolNip) {
-                        Card card = new Card(strNombreBanco,Integer.parseInt(strNumCuenta),Integer.parseInt(strNip),
-                                strFecha,Integer.parseInt(strCvv),intTarjetaDigital);
-                        dbAcces.addCard(card);
+                        dbAcces.updateCard(id,strNombreBanco,strNumCuenta,Integer.parseInt(strNip),
+                                strFecha,Integer.parseInt(strCvv),"S/E","S/E",intTarjetaDigital);
                         nombre_banco.setText("");
                         num_cuenta.setText("");
                         fecha.setText("");
@@ -186,7 +184,7 @@ public class EditarCards extends AppCompatActivity {
                     }
                 }
 
-                Snackbar.make(findViewById(android.R.id.content), "Guardado", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(findViewById(android.R.id.content), "Actualizado", Snackbar.LENGTH_LONG).show();
                 break;
         }
 

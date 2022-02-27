@@ -133,7 +133,7 @@
             android:id="@+id/tipo_de_tarjeta"
             android:text="t\n a\n r\n j\n e\n t\n a\n"
             android:textColor="@color/textBtnTiles"
-            android:layout_marginTop="21dp"
+            android:layout_marginTop="25dp"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

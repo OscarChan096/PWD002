@@ -138,6 +138,8 @@ public class AddCard extends AppCompatActivity {
 
                     Card card = new Card(strNombreBanco, strNumCuenta, Integer.parseInt(strNip),
                             strFecha, Integer.parseInt(strCvv), intTarjetaDigital);
+                    card.setUsuarioApp("S/E");
+                    card.setPasswordApp("S/E");
                     dbAcces.addCard(card);
                     nombre_banco.setText("");
                     num_cuenta.setText("");

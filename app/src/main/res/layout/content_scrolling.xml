@@ -12,7 +12,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgpwd"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="335dp"
         android:src="@drawable/imgpwd"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="@string/saludo"
         android:gravity="center"
         android:textColor="@color/textBtn"
@@ -37,7 +37,7 @@
         android:hint="@string/password"
         android:gravity="center"
         android:textColor="@color/textBtn"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:inputType="numberPassword"
         android:maxLength="4"
