@@ -15,15 +15,16 @@
         android:layout_margin="30dp"
         android:hint="@string/nombre_banco"
         android:textColorHint="@color/colorHint"
+        app:hintTextColor="@color/colorHint"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nombre_banco"
+            android:textColor="@color/textBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:textColorHint="@color/colorHint"
             android:padding="15dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -35,16 +36,17 @@
         android:layout_margin="30dp"
         android:hint="@string/num_cuenta"
         android:textColorHint="@color/colorHint"
+        app:hintTextColor="@color/colorHint"
         app:layout_constraintTop_toBottomOf="@+id/edt_banco"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/num_cuenta"
+            android:textColor="@color/textBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:inputType="number"
-            android:textColorHint="@color/colorHint"
             android:padding="15dp"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
 
@@ -65,18 +67,19 @@
             android:layout_width="match_parent"
             android:layout_margin="15dp"
             android:hint="@string/fecha"
-            android:textColorHint="@color/bnv"
+            android:textColorHint="@color/colorHint"
+            app:hintTextColor="@color/colorHint"
             tools:ignore="MissingConstraints"
             android:layout_weight="5">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fecha"
+                android:textColor="@color/textBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:inputType="date"
-                android:padding="15dp"
-                android:textColorHint="@color/colorHint"/>
+                android:padding="15dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,11 +90,13 @@
             android:layout_margin="15dp"
             android:hint="@string/cvv"
             android:textColorHint="@color/colorHint"
+            app:hintTextColor="@color/colorHint"
             tools:ignore="MissingConstraints"
             android:layout_weight="5">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/cvv"
+                android:textColor="@color/textBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -109,11 +114,13 @@
             android:layout_margin="15dp"
             android:hint="@string/nip"
             android:textColorHint="@color/colorHint"
+            app:hintTextColor="@color/colorHint"
             tools:ignore="MissingConstraints"
             android:layout_weight="5">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nip"
+                android:textColor="@color/textBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -163,11 +170,13 @@
         android:layout_margin="30dp"
         android:hint="@string/user"
         android:textColorHint="@color/colorHint"
+        app:hintTextColor="@color/colorHint"
         app:layout_constraintTop_toBottomOf="@+id/info"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/user_app"
+            android:textColor="@color/textBtn"
             android:padding="15dp"
             android:enabled="false"
             android:textColorHint="@color/colorHint"
@@ -185,11 +194,13 @@
         android:layout_margin="30dp"
         android:hint="@string/password"
         android:textColorHint="@color/colorHint"
+        app:hintTextColor="@color/colorHint"
         app:layout_constraintTop_toBottomOf="@+id/edt_user_app"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_app"
+            android:textColor="@color/textBtn"
             android:padding="15dp"
             android:enabled="false"
             android:layout_width="match_parent"

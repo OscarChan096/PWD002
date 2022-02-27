@@ -8,8 +8,7 @@
     <string name="configuraciones">Configuraciones</string>
     <string name="version_fase">4.2.0 build 46 beta2</string>
     <string name="fase">beta2</string>
-    <string name="version">4.4.1 build 53</string>
-    <string name="build">build 46</string>
+    <string name="version">4.4.3</string>
     <string name="by">By Oscar Chan</string>
     <string name="title_activity_main_pwd">MainPWD</string>
     <string name="title_home">Home</string>
@@ -45,5 +44,24 @@
     <string name="usuario">Usuario</string>
     <string name="tarjetas">Tarjetas</string>
     <string name="datosApp"># Datos para iniciar sesion en la app del banco</string>
+    <string name="titulo">Titulo</string>
+    <string name="usuario_correo">Usuario/Correo/# telefono</string>
+    <string name="id">id</string>
+    <string name="plus_char">+</string>
+    <string name="number_eight">8</string>
+    <string name="less_char">-</string>
+    <string name="generatePass">Crear Contraseña</string>
+    <string name="inf0"># Seleccione una/varias opcion(es) para la contraseña</string>
+    <string name="inf1"># Dejar en blanco para no asignar contraseña</string>
+    <string name="mayus">Mayusculas</string>
+    <string name="minus">Minusculas</string>
+    <string name="numeros">Números</string>
+    <string name="simbolos">Simbolos</string>
+    <string name="label_infouser"># Cambiar usuario/contraseña</string>
+    <string name="save">Guardar</string>
+    <string name="label_backup"># Respaldar datos y PWDS</string>
+    <string name="bckup_pwds">Backup PWDS</string>
+    <string name="sincronizar_datos_usuario">Sincronizar Datos de usuario</string>
+    <string name="label_welcome0"># el pin lo usara para entrar a la app</string>
 
 </resources>

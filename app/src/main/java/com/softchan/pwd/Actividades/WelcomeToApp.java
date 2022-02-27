@@ -2,17 +2,14 @@ package com.softchan.pwd.Actividades;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -31,7 +28,8 @@ public class WelcomeToApp extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(saved);
         setContentView(R.layout.welcome);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 
         permissionStorageExternal();
 
@@ -39,24 +37,21 @@ public class WelcomeToApp extends AppCompatActivity {
         final EditText passordUsuario = findViewById(R.id.ed_welcome_password);
         Button guardarUsuario = findViewById(R.id.btn_welcome_guardar_usuario);
 
-        guardarUsuario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String sNombreUsuario = nombreUsuario.getText().toString();
-                //Log.d("usuario",sNombreUsuario);
-                if (sNombreUsuario.length() > 0) {
-                    sNombreUsuario.toUpperCase();
-                }else if (sNombreUsuario.length() == 0){
-                    sNombreUsuario = "";
-                }
-                String sPasswordUsuario = passordUsuario.getText().toString();
-                //Log.d("usuario pwd",sPasswordUsuario);
-                if (sPasswordUsuario.length() == 0)
-                    sPasswordUsuario = "none";
-                if(Write.saveUserInf(sNombreUsuario,sPasswordUsuario,0)){
-                    Snackbar.make(findViewById(android.R.id.content),"GUARDADO",Snackbar.LENGTH_LONG).show();
-                    finish();
-                }
+        guardarUsuario.setOnClickListener(v -> {
+            String sNombreUsuario = nombreUsuario.getText().toString();
+            //Log.d("usuario",sNombreUsuario);
+            if (sNombreUsuario.length() > 0) {
+                sNombreUsuario.toUpperCase();
+            }else if (sNombreUsuario.length() == 0){
+                sNombreUsuario = "";
+            }
+            String sPasswordUsuario = passordUsuario.getText().toString();
+            //Log.d("usuario pwd",sPasswordUsuario);
+            if (sPasswordUsuario.length() == 0)
+                sPasswordUsuario = "none";
+            if(Write.saveUserInf(sNombreUsuario,sPasswordUsuario,0)){
+                Snackbar.make(findViewById(android.R.id.content),"GUARDADO",Snackbar.LENGTH_LONG).show();
+                finish();
             }
         });
 
@@ -81,11 +76,8 @@ public class WelcomeToApp extends AppCompatActivity {
             new AlertDialog.Builder(actividad)
                     .setTitle("Solicitud de permiso")
                     .setMessage(justificacion)
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            ActivityCompat.requestPermissions(actividad,
-                                    new String[]{permiso}, requestCode);
-                        }})
+                    .setPositiveButton("Ok", (dialog, whichButton) -> ActivityCompat.requestPermissions(actividad,
+                            new String[]{permiso}, requestCode))
                     .show();
         } else {
             ActivityCompat.requestPermissions(actividad,
@@ -94,7 +86,7 @@ public class WelcomeToApp extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == SOLICITUD_PERMISO_WRITE_CALL_LOG) {
             if (grantResults.length== 1 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {

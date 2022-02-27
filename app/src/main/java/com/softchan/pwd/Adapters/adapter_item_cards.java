@@ -1,17 +1,13 @@
 package com.softchan.pwd.Adapters;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,13 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.softchan.pwd.R;
 import com.softchan.pwd.dbroom.Card;
 import com.softchan.pwd.dbroom.DBAcces;
-import com.softchan.pwd.dbroom.Pswd;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -36,14 +29,15 @@ import java.util.Locale;
 
 public class adapter_item_cards extends RecyclerView.Adapter<adapter_item_cards.ViewHolder> {
 
-    private List<Card> cardsDataList;
-    private List<Card> cardsDataListCopia = new ArrayList<>();
-    private Context context;
+    private final List<Card> cardsDataList;
+    //private List<Card> cardsDataListCopia = new ArrayList<>();
+    private final Context context;
 
+    @SuppressLint("NotifyDataSetChanged")
     public adapter_item_cards(Context context, List<Card> cardsDataList){
         this.context = context;
         this.cardsDataList = cardsDataList;
-        this.cardsDataListCopia.addAll(cardsDataList);
+        //this.cardsDataListCopia.addAll(cardsDataList);
         notifyDataSetChanged();
     }
 
@@ -97,6 +91,7 @@ public class adapter_item_cards extends RecyclerView.Adapter<adapter_item_cards.
         return cardsDataList.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void delete(int position){
         Card card = cardsDataList.get(position);
         DBAcces dbAcces = DBAcces.getInstance(context);

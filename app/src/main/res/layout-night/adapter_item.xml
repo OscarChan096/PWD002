@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,11 +12,12 @@
     <TextView
         android:layout_gravity="right"
         android:id="@+id/item_id"
-        android:text="id"
+        android:text="@string/id"
         android:textColor="@color/background_id"
         android:layout_margin="5dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        tools:ignore="RtlHardcoded" />
 
     <LinearLayout
         android:padding="15dp"
@@ -24,7 +26,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="titulo"
+            android:text="@string/titulo"
             android:id="@+id/nombre_adapter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,14 +34,14 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:text="usuario"
+            android:text="@string/usuario"
             android:id="@+id/usuario_adapter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/textBtnTiles"/>
 
         <TextView
-            android:text="password"
+            android:text="@string/password"
             android:id="@+id/password_adapter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

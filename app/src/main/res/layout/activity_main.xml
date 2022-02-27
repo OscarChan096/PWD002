@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:background="@android:color/transparent"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck,UnusedAttribute"
             android:focusedByDefault="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>

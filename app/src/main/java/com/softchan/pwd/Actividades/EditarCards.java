@@ -30,7 +30,6 @@ import java.util.regex.Pattern;
 
 public class EditarCards extends AppCompatActivity {
 
-    private int id;
     private TextInputEditText nombre_banco;
     private TextInputEditText num_cuenta;
     private TextInputEditText fecha;
@@ -54,7 +53,7 @@ public class EditarCards extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         Intent i = getIntent();
-        id = Integer.parseInt(i.getStringExtra("id"));
+        int id = Integer.parseInt(i.getStringExtra("id"));
         String strNombreBanco = i.getStringExtra("banco");
         String strNumCuenta = i.getStringExtra("numcuenta");
         String strFecha = i.getStringExtra("fecha");
@@ -73,6 +72,7 @@ public class EditarCards extends AppCompatActivity {
         password_app = findViewById(R.id.password_app);
         tarjeta_virtual = findViewById(R.id.tarjeta_virtual);
         banca_movil = findViewById(R.id.banca_movil);
+        banca_movil.setChecked(false);
 
         nombre_banco.setText(strNombreBanco);
         num_cuenta.setText(strNumCuenta);

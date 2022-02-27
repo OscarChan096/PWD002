@@ -1,21 +1,17 @@
 package com.softchan.pwd;
 
 import android.content.Intent;
-import android.hardware.biometrics.BiometricPrompt;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.softchan.pwd.Actividades.MainPWD;
 import com.softchan.pwd.Actividades.WelcomeToApp;
@@ -23,7 +19,6 @@ import com.softchan.pwd.Datos.Read;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.concurrent.Executor;
 
 
 public class ScrollingActivity extends AppCompatActivity implements TextWatcher {
@@ -35,6 +30,8 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher 
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
 
@@ -53,11 +50,7 @@ public class ScrollingActivity extends AppCompatActivity implements TextWatcher 
 
         mensajeBienvenida = findViewById(R.id.tvbienvenida);
         mensajeBienvenida.setText("HOLA, "+userInfList.get(0));
-        new Handler().postDelayed(new Runnable(){
-            public void run(){
-                mensajeBienvenida.setText(dtn());
-            };
-        }, 1500);
+        new Handler().postDelayed(() -> mensajeBienvenida.setText(dtn()), 1500);
 
         password = findViewById(R.id.inicio_password);
         password.addTextChangedListener(this);

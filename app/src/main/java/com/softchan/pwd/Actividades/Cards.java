@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.WindowManager;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -14,12 +12,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.softchan.pwd.Adapters.adapter_item_cards;
 import com.softchan.pwd.R;
 import com.softchan.pwd.dbroom.Card;
 import com.softchan.pwd.dbroom.DBAcces;
-import com.softchan.pwd.dbroom.Pswd;
 
 import java.util.List;
 
@@ -83,13 +79,9 @@ public class Cards extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem){
-        switch(menuItem.getItemId()){
-            case R.id.action_add:
-                Intent add = new Intent(getApplicationContext(),AddCard.class);
-                startActivity(add);
-                break;
-            default:
-                break;
+        if (menuItem.getItemId() == R.id.action_add) {
+            Intent add = new Intent(getApplicationContext(), AddCard.class);
+            startActivity(add);
         }
         return super.onOptionsItemSelected(menuItem);
     }

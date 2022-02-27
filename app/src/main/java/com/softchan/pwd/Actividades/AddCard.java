@@ -1,11 +1,8 @@
 package com.softchan.pwd.Actividades;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CompoundButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -105,13 +102,13 @@ public class AddCard extends AppCompatActivity {
             Matcher nipMatch = cvvNipRgx.matcher(strNip);
             Matcher userAppMatch = userAppRgx.matcher(strUserApp.toUpperCase());
 
-            boolean bolNombreBanco = nombreBancoMatch.matches() ? true : false;
-            boolean bolNumCuenta = numCuentaMatch.matches() ? true : false;
-            boolean bolFecha = fechaMatch.matches() ? true : false;
-            boolean bolCvv = cvvMatch.matches() ? true : false;
-            boolean bolNip = nipMatch.matches() ? true : false;
-            boolean bolUserApp = userAppMatch.matches() ? true : false;
-            boolean bolPasswordApp = strPasswordApp.length() > 0 ? true : false;
+            boolean bolNombreBanco = nombreBancoMatch.matches();
+            boolean bolNumCuenta = numCuentaMatch.matches();
+            boolean bolFecha = fechaMatch.matches();
+            boolean bolCvv = cvvMatch.matches();
+            boolean bolNip = nipMatch.matches();
+            boolean bolUserApp = userAppMatch.matches();
+            boolean bolPasswordApp = strPasswordApp.length() > 0;
 
             int intTarjetaDigital = tarjeta_virtual.isChecked() ? 1 : 0;
 

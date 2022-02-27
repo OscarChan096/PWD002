@@ -15,83 +15,108 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/nombre"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_height="wrap_content"
-            android:hint="Titulo"
-            android:padding="10dp"
-            android:textColor="@color/textBtn"
-            android:textColorHint="@color/textBtn"
-            android:layout_margin="25dp"/>
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/titulo"
+            android:textColorHint="@color/colorHint">
 
-        <EditText
-            android:id="@+id/usuario"
-            android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nombre"
+                android:textColor="@color/textBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:textColorHint="@color/colorHint"
+                android:padding="10dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_height="wrap_content"
-            android:hint="Usuario o correo"
-            android:padding="10dp"
-            android:textColor="@color/textBtn"
-            android:layout_margin="25dp"
-            android:textColorHint="@color/textBtn"/>
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/usuario_correo"
+            android:textColorHint="@color/colorHint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usuario"
+                android:textColor="@color/textBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxWidth="200dp"
+                android:background="@android:color/transparent"
+                android:textColorHint="@color/colorHint"
+                android:padding="10dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
             android:weightSum="10">
 
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_height="wrap_content"
-                android:layout_weight="7"
-                android:minWidth="0dp"
-                android:maxWidth="500dp"
+                android:layout_width="200dp"
                 android:hint="@string/password"
-                android:padding="10dp"
-                android:textColor="@color/textBtn"
-                android:textColorHint="@color/textBtn"
-                android:layout_marginBottom="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="25dp"/>
+                android:textColorHint="@color/colorHint"
+                android:layout_weight="7">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:textColor="@color/textBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textColorHint="@color/colorHint"
+                    android:padding="15dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/lim_pwds"
-                android:text="8"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:textColor="@color/textBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"/>
+                android:maxWidth="30dp"
+                android:background="@android:color/transparent"
+                android:text="@string/number_eight"
+                android:textColor="@color/textBtn"
+                android:padding="15dp"
+                android:layout_weight="2"/>
+
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/up"
-                    android:text="+"
+                    android:text="@string/plus_char"
                     android:gravity="center"
                     android:textColor="@color/textBtn"
-                    android:layout_marginTop="25dp"
-                    android:minWidth="30dp"
-                    android:minHeight="22dp"
-                    android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:minWidth="50dp"
+                    android:minHeight="27dp"
+                    android:layout_width="25dp"
                     android:layout_height="wrap_content"/>
 
                 <TextView
                     android:id="@+id/down"
-                    android:text="-"
+                    android:text="@string/less_char"
                     android:gravity="center"
                     android:textColor="@color/textBtn"
-                    android:layout_marginBottom="25dp"
-                    android:minWidth="30dp"
-                    android:minHeight="22dp"
-                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:minWidth="50dp"
+                    android:minHeight="27dp"
+                    android:layout_width="25dp"
                     android:layout_height="wrap_content"/>
 
             </LinearLayout>
@@ -102,9 +127,9 @@
             android:id="@+id/btnGenerarPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Generar Contraseña"
+            android:text="@string/generatePass"
             android:textColor="@color/textBtn"
-            android:background="@drawable/boton_redondo"
+            android:background="@drawable/boton_custom_night"
             android:padding="10dp"
             android:layout_margin="30dp"
             android:layout_gravity="center"/>
@@ -118,14 +143,14 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="- Seleccione una/varias opcion(es) para la contraseña"
+                android:text="@string/inf0"
                 android:textColor="@color/textBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="3pt"
                 android:layout_gravity="center_vertical"/>
             <TextView
-                android:text="- Dejar en blanco para no asignar contraseña"
+                android:text="@string/inf1"
                 android:textColor="@color/textBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -145,7 +170,7 @@
                     android:layout_weight="1"
                     android:buttonTint="@color/textBtn"
                     android:textColor="@color/textBtn"
-                    android:text="Mayusculas" />
+                    android:text="@string/mayus" />
 
                 <CheckBox
                     android:id="@+id/chk_min"
@@ -154,7 +179,7 @@
                     android:layout_weight="1"
                     android:buttonTint="@color/textBtn"
                     android:textColor="@color/textBtn"
-                    android:text="Minusculas" />
+                    android:text="@string/minus" />
 
             </LinearLayout>
 
@@ -171,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/textBtn"
-                    android:text="Numeros" />
+                    android:text="@string/numeros" />
 
                 <CheckBox
                     android:id="@+id/chk_sim"
@@ -180,7 +205,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/textBtn"
-                    android:text="Simbolos" />
+                    android:text="@string/simbolos" />
 
             </LinearLayout>
 

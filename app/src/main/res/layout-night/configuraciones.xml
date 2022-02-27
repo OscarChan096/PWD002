@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textBtn"
             android:textStyle="bold|italic"
-            android:text=" # Configuracion de contraseña"
+            android:text="@string/label_infouser"
             android:labelFor="@+id/user_pwd"/>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/usuario"
             app:hintTextColor="@color/colorHint"
+            android:textColorHint="@color/colorHint"
             android:padding="10dp"
             android:layout_gravity="center">
                 <com.google.android.material.textfield.TextInputEditText
@@ -50,8 +51,7 @@
                     android:textColor="@color/textBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/usuario"
-                    android:textColorHint="@color/colorHint"
+                    android:background="@android:color/transparent"
                     android:padding="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,6 +60,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             app:hintTextColor="@color/colorHint"
+            android:textColorHint="@color/colorHint"
             android:padding="10dp"
             android:layout_gravity="center">
                 <com.google.android.material.textfield.TextInputEditText
@@ -67,8 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/textBtn"
-                    android:hint="@string/password"
-                    android:textColorHint="@color/colorHint"
+                    android:background="@android:color/transparent"
                     android:padding="10dp"
                     android:maxLength="4"
                     android:inputType="numberPassword"/>
@@ -78,7 +78,7 @@
             android:id="@+id/btn_save_paswd_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Guardar"
+            android:text="@string/save"
             android:textColor="@color/textBtn"
             android:padding="10dp"
             android:layout_margin="15dp"
@@ -92,14 +92,14 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textBtn"
             android:textStyle="bold|italic"
-            android:text=" # Respaldar datos y PWDS"
+            android:text="@string/label_backup"
             android:contentDescription="@string/sync"/>
 
         <Button
             android:id="@+id/backup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Backup PWDS"
+            android:text="@string/bckup_pwds"
             android:textColor="@color/textBtn"
             android:padding="10dp"
             android:layout_margin="15dp"
@@ -110,7 +110,7 @@
             android:id="@+id/syncpin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sincronizar Datos de usuario"
+            android:text="@string/sincronizar_datos_usuario"
             android:textColor="@color/textBtn"
             android:padding="10dp"
             android:layout_margin="15dp"

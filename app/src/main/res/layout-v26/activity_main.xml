@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Actividades.MainPWD"
-    android:background="@color/background">
+    android:background="@color/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear"
@@ -54,8 +55,7 @@
         android:layout_marginBottom="8dp"
         android:paddingBottom="10dp"
         android:hint="@string/buscar"
-        android:textColorHint="@color/colorHint"
-        app:hintTextColor="@color/colorHint"
+        android:textColorHint="#546E7A"
         app:layout_constraintTop_toBottomOf="@+id/linear"
         app:layout_constraintLeft_toLeftOf="parent">
 

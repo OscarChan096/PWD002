@@ -1,17 +1,12 @@
 package com.softchan.pwd.Datos;
 
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.Random;
-
 public class GeneratePassword {
 
-    private boolean chkma;
-    private boolean chkmi;
-    private boolean chknu;
-    private boolean chksi;
-    private int lim;
+    private final boolean chkma;
+    private final boolean chkmi;
+    private final boolean chknu;
+    private final boolean chksi;
+    private final int lim;
 
     public GeneratePassword(boolean chkma, boolean chkmi, boolean chknu, boolean chksi, int lim){
         this.chkma = chkma;
@@ -123,9 +118,9 @@ public class GeneratePassword {
         }
 
         public char letrasMayus(){
-            char c = (char)(letrasMin() - (int) 'a' + (int) 'A');
+            char ch = (char)(letrasMin() - (int) 'a' + (int) 'A');
             //Log.d("mayuscula",c+"");
-            return c;
+            return ch;
         }
 
         public char simbolos(){

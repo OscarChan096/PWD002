@@ -3,12 +3,12 @@ package com.softchan.pwd.Actividades;
 import static com.softchan.pwd.Datos.Paths.typePassword;
 import static com.softchan.pwd.Datos.Paths.typeUser;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +18,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.softchan.pwd.Datos.Write;
 import com.softchan.pwd.R;
-import com.softchan.pwd.SyncData.Upload;
-import com.softchan.pwd.dbroom.DBAcces;
 
 public class Settings extends AppCompatActivity{
 
@@ -43,23 +41,21 @@ public class Settings extends AppCompatActivity{
         passwordPwd = findViewById(R.id.password_pwd); // falta extraer datos y guardar cambios
         passwordPwd.addTextChangedListener(new Watcher(passwordPwd.getId()));
         Button btnUpdate = findViewById(R.id.btn_save_paswd_edit);
-        Button backup = findViewById(R.id.backup);
-        Button btnSyncPin = findViewById(R.id.syncpin);
+        //Button backup = findViewById(R.id.backup);
+        //Button btnSyncPin = findViewById(R.id.syncpin);
         //Button btnDownload = getActivity().findViewById(R.id.btn_download);
 
-        btnInterfazVisual.setOnClickListener(view ->{
-            SettingsActivity.start(getApplicationContext());
-        });
+        btnInterfazVisual.setOnClickListener(view -> SettingsActivity.start(getApplicationContext()));
 
         btnUpdate.setOnClickListener(view -> {
             boolean succes = false;
             Watcher watcher = new Watcher();
             if (watcher.isBolUser() && watcher.isBolPassword())
-                succes = Write.saveUserInf(userPwd.getText().toString(),passwordPwd.getText().toString(),1);
+                succes = Write.saveUserInf(String.valueOf(userPwd.getText()),String.valueOf(passwordPwd.getText()),1);
             else if(watcher.isBolUser())
-                succes = Write.saveUserInf(userPwd.getText().toString(),typeUser);
+                succes = Write.saveUserInf(String.valueOf(userPwd.getText()),typeUser);
             else if(watcher.isBolPassword())
-                succes = Write.saveUserInf(passwordPwd.getText().toString(),typePassword);
+                succes = Write.saveUserInf(String.valueOf(passwordPwd.getText()),typePassword);
 
             if (succes)
                 Snackbar.make(findViewById(android.R.id.content),"Datos actualizados",Snackbar.LENGTH_SHORT).show();
@@ -123,22 +119,17 @@ public class Settings extends AppCompatActivity{
 
         }
 
+        @SuppressLint("NonConstantResourceId")
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             switch (id){
                 case R.id.user_pwd:
                     Log.d("R.id.user_wd",id+"");
-                    if (count > 0)
-                        bolUser = true;
-                    else
-                        bolUser = false;
+                    bolUser = count > 0;
                     break;
                 case R.id.password_pwd:
                     Log.d("R.id.passowrd_pwd",id+"");
-                    if (count > 0)
-                        bolPassword = true;
-                    else
-                        bolPassword = false;
+                    bolPassword = count > 0;
                     break;
             }
         }

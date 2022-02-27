@@ -1,17 +1,13 @@
 package com.softchan.pwd.Adapters;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,9 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.softchan.pwd.Actividades.Editar;
-import com.softchan.pwd.Actividades.MainPWD;
 import com.softchan.pwd.R;
 import com.softchan.pwd.dbroom.DBAcces;
 import com.softchan.pwd.dbroom.Pswd;
@@ -35,10 +28,11 @@ import java.util.List;
 
 public class adapter_item extends RecyclerView.Adapter<adapter_item.ViewHolder> {
 
-    private List<Pswd> pswdDataList;
-    private List<Pswd> pswdDataListCopia = new ArrayList<>();
-    private Context context;
+    private final List<Pswd> pswdDataList;
+    private final List<Pswd> pswdDataListCopia = new ArrayList<>();
+    private final Context context;
 
+    @SuppressLint("NotifyDataSetChanged")
     public adapter_item(Context context, List<Pswd> pswdDataList){
         this.context = context;
         this.pswdDataList = pswdDataList;
@@ -67,6 +61,7 @@ public class adapter_item extends RecyclerView.Adapter<adapter_item.ViewHolder> 
         return pswdDataList.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void delete(int position){
         Pswd pswd = pswdDataList.get(position);
         DBAcces dbAcces = DBAcces.getInstance(context);
@@ -79,6 +74,7 @@ public class adapter_item extends RecyclerView.Adapter<adapter_item.ViewHolder> 
     }
 
     /* Filtra los datos del adaptador */
+    @SuppressLint("NotifyDataSetChanged")
     public void filtrar(String texto) {
 
         // Elimina todos los datos del ArrayList que se cargan en los
