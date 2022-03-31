@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.softchan.pwd.Functions.Splits;
 import com.softchan.pwd.R;
 import com.softchan.pwd.dbroom.Card;
 import com.softchan.pwd.dbroom.DBAcces;
@@ -51,12 +52,13 @@ public class adapter_item_cards extends RecyclerView.Adapter<adapter_item_cards.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Card card = cardsDataList.get(position);
+        Splits split = new Splits();
         if (card.getTarjetaVirtual() == 0) {
             final String categoria = "f\ni\ns\ni\nc\na";
             holder.bck_categoria.setBackgroundResource(R.color.categoriaFisica);
             holder.tipo_tarjeta.setText(categoria);
             holder.nombre_banco.setText(card.getBanco().toUpperCase(Locale.ROOT));
-            holder.num_cuenta.setText(card.getNumeroDeCuenta());
+            holder.num_cuenta.setText(split.numCuenta(card.getNumeroDeCuenta()));
             holder.fecha.setText(card.getFecha());
             holder.cvv.setText(card.getCvv() + "");
             holder.nip.setText(card.getNip() + "");
@@ -72,7 +74,7 @@ public class adapter_item_cards extends RecyclerView.Adapter<adapter_item_cards.
             holder.bck_categoria.setBackgroundResource(R.color.categoriaDigital);
             holder.tipo_tarjeta.setText(categoria);
             holder.nombre_banco.setText(card.getBanco().toUpperCase());
-            holder.num_cuenta.setText(card.getNumeroDeCuenta());
+            holder.num_cuenta.setText(split.numCuenta(card.getNumeroDeCuenta()));
             holder.fecha.setText(card.getFecha());
             holder.cvv.setText(card.getCvv() + "");
             holder.nip.setText(card.getNip() + "");

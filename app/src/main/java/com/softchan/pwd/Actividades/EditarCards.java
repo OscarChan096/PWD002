@@ -2,6 +2,8 @@ package com.softchan.pwd.Actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +23,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.softchan.pwd.Datos.GeneratePassword;
+import com.softchan.pwd.Functions.Splits;
 import com.softchan.pwd.R;
 import com.softchan.pwd.dbroom.Card;
 import com.softchan.pwd.dbroom.DBAcces;
@@ -53,6 +56,8 @@ public class EditarCards extends AppCompatActivity {
         ab.setDisplayShowHomeEnabled(false);
         ab.setDisplayHomeAsUpEnabled(true);
 
+        Splits split = new Splits();
+
         Intent i = getIntent();
         id = Integer.parseInt(i.getStringExtra("id"));
         String strNombreBanco = i.getStringExtra("banco");
@@ -76,7 +81,7 @@ public class EditarCards extends AppCompatActivity {
         banca_movil.setChecked(false);
 
         nombre_banco.setText(strNombreBanco);
-        num_cuenta.setText(strNumCuenta);
+        num_cuenta.setText(split.numCuenta(strNumCuenta));
         fecha.setText(strFecha);
         cvv.setText(intCvv+"");
         nip.setText(intNip+"");
@@ -190,5 +195,4 @@ public class EditarCards extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
