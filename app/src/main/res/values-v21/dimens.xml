@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dimen_data_card">5dp</dimen>
+    <dimen name="dimen_dialog">5dp</dimen>
+    <dimen name="drawable_padding">10dp</dimen>
 </resources>

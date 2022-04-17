@@ -1,5 +1,9 @@
 package com.softchan.pwd.Actividades;
 
+import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,9 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.softchan.pwd.Adapters.adapter_item;
@@ -26,12 +32,15 @@ public class MainPWD extends AppCompatActivity implements TextWatcher {
 
     private adapter_item adapter;
     private TextInputEditText busqueda;
+    private ClipboardManager clipboard;
+    private ClipData clip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        clipboard = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
 
         ImageView btnAdd = findViewById(R.id.add);
         ImageView btnCard = findViewById(R.id.card);
@@ -64,13 +73,13 @@ public class MainPWD extends AppCompatActivity implements TextWatcher {
 
     }
 
+    @SuppressLint("NewApi")
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
+        Pswd pswd = adapter.getPSWD(item.getGroupId());
         switch (item.getItemId()){
             case 0:
-                Pswd pswd = adapter.getPSWD(item.getGroupId());
                 Intent update = new Intent(getApplicationContext(), Editar.class);
-                //Log.d("pwd edi+",pswd.getId()+"");
                 update.putExtra("id",pswd.getId()+"");
                 update.putExtra("titulo",pswd.getTitulo());
                 update.putExtra("usuario",pswd.getUsuario());
@@ -79,6 +88,16 @@ public class MainPWD extends AppCompatActivity implements TextWatcher {
                 break;
             case 1:
                 adapter.delete(item.getGroupId());
+                break;
+            case 2:
+                clip = ClipData.newPlainText("simple text",pswd.getUsuario());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getApplicationContext(),"# Usuario copiado al portapales",Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                clip = ClipData.newPlainText("simple text",pswd.getPassword());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getApplicationContext(),"# Password copiado al portapales",Toast.LENGTH_SHORT).show();
                 break;
         }
 

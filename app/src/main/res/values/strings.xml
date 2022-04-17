@@ -8,7 +8,7 @@
     <string name="configuraciones">Configuraciones</string>
     <string name="version_fase">4.2.0 build 46 beta2</string>
     <string name="fase">beta2</string>
-    <string name="version">4.4.7</string>
+    <string name="version">4.4.8</string>
     <string name="by">By Oscar Chan</string>
     <string name="title_activity_main_pwd">MainPWD</string>
     <string name="title_home">Home</string>
@@ -63,5 +63,6 @@
     <string name="bckup_pwds">Backup PWDS</string>
     <string name="sincronizar_datos_usuario">Sincronizar Datos de usuario</string>
     <string name="label_welcome0"># el pin lo usara para entrar a la app</string>
+    <string name="texto_de_prueba">texto de prueba</string>
 
 </resources>

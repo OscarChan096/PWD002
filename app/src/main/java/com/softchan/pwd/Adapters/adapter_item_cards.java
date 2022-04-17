@@ -175,6 +175,9 @@ public class adapter_item_cards extends RecyclerView.Adapter<adapter_item_cards.
             menu.setHeaderTitle(nombre_banco.getText().toString());
             menu.add(this.getAdapterPosition(),0,0,"Editar");
             menu.add(this.getAdapterPosition(),1,1,"Eliminar");
+            menu.add(this.getAdapterPosition(),2,2,"Copiar # Cuenta");
+            menu.add(this.getAdapterPosition(),3,3,"Copiar usuario app");
+            menu.add(this.getAdapterPosition(),4,4,"Copiar contraseña app");
         }
     }
 

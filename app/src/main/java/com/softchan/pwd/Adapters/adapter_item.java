@@ -121,9 +121,8 @@ public class adapter_item extends RecyclerView.Adapter<adapter_item.ViewHolder> 
             cardView.setOnCreateContextMenuListener(this);
             cardView.setOnClickListener(v -> {
                 ClipData clip = ClipData.newPlainText("simple text",password.getText().toString());
-                clipboard.setPrimaryClip(clip); // probar funcion
-                Toast.makeText(context,"Contraseña copiada",Toast.LENGTH_SHORT).show();
-                //Log.d("clipboard","copiado al portapapeles");
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(context,"# Contraseña copiada",Toast.LENGTH_SHORT).show();
             });
         }
 
@@ -132,6 +131,8 @@ public class adapter_item extends RecyclerView.Adapter<adapter_item.ViewHolder> 
             menu.setHeaderTitle(titulo.getText().toString());
             menu.add(this.getAdapterPosition(),0,0,"Editar");
             menu.add(this.getAdapterPosition(),1,1,"Eliminar");
+            menu.add(this.getAdapterPosition(),2,2,"Copiar Usuario");
+            menu.add(this.getAdapterPosition(),3,3,"Copiar Contraseña");
         }
     }
 
